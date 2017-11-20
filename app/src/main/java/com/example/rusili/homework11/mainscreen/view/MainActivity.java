@@ -1,7 +1,9 @@
-package com.example.rusili.homework11;
+package com.example.rusili.homework11.mainscreen.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.rusili.homework11.R;
 
 public class MainActivity extends AppCompatActivity {
 
