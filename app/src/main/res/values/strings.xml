@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Homework11</string>
+    <string name="baseUrl">http://pokeapi.co/api/v2/</string>
 </resources>
