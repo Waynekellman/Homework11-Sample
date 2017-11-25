@@ -1,4 +1,4 @@
-package com.example.rusili.homework11.pokedexscreen.model.objects;
+package com.example.rusili.homework11.pokedexActivity.model.objects;
 
 /**
  * Created by rusi.li on 11/22/17.

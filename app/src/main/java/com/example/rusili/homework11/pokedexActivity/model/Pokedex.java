@@ -1,8 +1,8 @@
-package com.example.rusili.homework11.pokedexscreen.model;
+package com.example.rusili.homework11.pokedexActivity.model;
 
-import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
-import com.example.rusili.homework11.pokedexscreen.model.objects.Region;
-import com.example.rusili.homework11.pokedexscreen.model.objects.VersionGroups;
+import com.example.rusili.homework11.pokedexActivity.model.objects.PokemonEntries;
+import com.example.rusili.homework11.pokedexActivity.model.objects.Region;
+import com.example.rusili.homework11.pokedexActivity.model.objects.VersionGroups;
 
 /**
  * Created by rusi.li on 11/22/17.
