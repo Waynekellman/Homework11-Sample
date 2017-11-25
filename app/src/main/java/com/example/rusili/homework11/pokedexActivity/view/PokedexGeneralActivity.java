@@ -1,13 +1,15 @@
 package com.example.rusili.homework11.pokedexActivity.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.pokedexActivity.view.fragments.GameListFragment;
 import com.example.rusili.homework11.pokedexActivity.view.fragments.PokedexFragment;
 
 public class PokedexGeneralActivity extends AppCompatActivity {
+	private final FragmentManager fragmentManager = getSupportFragmentManager();
 
 	@Override
 	protected void onCreate (Bundle savedInstanceState) {
@@ -22,15 +24,18 @@ public class PokedexGeneralActivity extends AppCompatActivity {
 	}
 
 	private void showGameListFragment () {
-		getSupportFragmentManager().beginTransaction()
-			  .replace(R.id.pokedex_activity_container, GameListFragment.getInstance())
+		fragmentManager.beginTransaction()
+			  .replace(R.id.pokedex_activity_container, new GameListFragment())
 			  .addToBackStack(null)
 			  .commit();
 	}
 
-	private void showPokedexFragment () {
-		getSupportFragmentManager().beginTransaction()
-			  .replace(R.id.pokedex_activity_container, PokedexFragment.getInstance())
+	public void showPokedexFragment (int pokedexID) {
+		PokedexFragment pokedexFragment = new PokedexFragment();
+		pokedexFragment.setPokedexId(pokedexID);
+
+		fragmentManager.beginTransaction()
+			  .replace(R.id.pokedex_activity_container, pokedexFragment)
 			  .addToBackStack(null)
 			  .commit();
 	}

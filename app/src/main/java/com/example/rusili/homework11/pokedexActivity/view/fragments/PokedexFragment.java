@@ -26,19 +26,12 @@ import java.util.List;
  */
 
 public class PokedexFragment extends Fragment {
-	private static PokedexFragment pokedexFragment;
-
 	private RetrofitFactory.PokedexNetworkListener pokedexNetworkListener;
 
 	private View parentView;
 	private RecyclerView pokedexRecyclerView;
 
-	public static PokedexFragment getInstance () {
-		if (pokedexFragment == null) {
-			pokedexFragment = new PokedexFragment();
-		}
-		return pokedexFragment;
-	}
+	private int pokedexId;
 
 	@Nullable
 	@Override
@@ -68,7 +61,10 @@ public class PokedexFragment extends Fragment {
 		};
 
 		RetrofitFactory.getInstance().setPokedexListener(pokedexNetworkListener);
-		RetrofitFactory.getInstance().getPokedex();
+		RetrofitFactory.getInstance().getPokedex(pokedexId);
 	}
 
+	public void setPokedexId (int pokedexID) {
+		this.pokedexId = pokedexID;
+	}
 }

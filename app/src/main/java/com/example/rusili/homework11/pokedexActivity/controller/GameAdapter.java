@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.rusili.homework11.R;
-import com.example.rusili.homework11.pokedexActivity.model.objects.Game;
+import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
 import com.example.rusili.homework11.pokedexActivity.view.viewholder.GameViewholder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameAdapter extends RecyclerView.Adapter<GameViewholder> {
-	private List<Game> gamesList = new ArrayList<>();
+	private List<GameGroup> gamesList = new ArrayList<>();
 
-	public GameAdapter(List<Game> gameList){
-		this.gamesList = gameList;
+	public GameAdapter(List<GameGroup> gameGroupList){
+		this.gamesList = gameGroupList;
 	}
 
 	@Override

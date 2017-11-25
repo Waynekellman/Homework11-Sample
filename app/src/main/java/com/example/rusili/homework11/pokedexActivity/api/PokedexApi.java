@@ -1,7 +1,6 @@
 package com.example.rusili.homework11.pokedexActivity.api;
 
 import com.example.rusili.homework11.pokedexActivity.model.Pokedex;
-import com.example.rusili.homework11.pokedexActivity.model.PokemonGames;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,7 +14,4 @@ public interface PokedexApi {
 
     @GET("pokedex/{id}")
     Call<Pokedex> getPokedex(@Path("id") int id);
-
-    @GET("version-group/")
-    Call<PokemonGames> getListOfGames ();
 }

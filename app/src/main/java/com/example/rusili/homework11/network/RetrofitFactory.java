@@ -7,7 +7,6 @@ import com.example.rusili.homework11.detailscreen.api.PokemonApi;
 import com.example.rusili.homework11.detailscreen.model.Pokemon;
 import com.example.rusili.homework11.pokedexActivity.api.PokedexApi;
 import com.example.rusili.homework11.pokedexActivity.model.Pokedex;
-import com.example.rusili.homework11.pokedexActivity.model.PokemonGames;
 import com.example.rusili.homework11.util.Host;
 
 import retrofit2.Call;
@@ -24,7 +23,6 @@ public class RetrofitFactory {
 	private static RetrofitFactory retrofitFactory;
 
 	private Retrofit retrofit;
-	private GameListNetworkListener gameListNetworkListener = null;
 	private PokedexNetworkListener pokedexNetworkListener = null;
 	private PokemonNetworkListener pokemonNetworkListener = null;
 
@@ -37,10 +35,6 @@ public class RetrofitFactory {
 
 	public void setPokedexListener (PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;
-	}
-
-	public void setGameListNetworkListener (GameListNetworkListener gameListNetworkListener) {
-		this.gameListNetworkListener = gameListNetworkListener;
 	}
 
 	public void setPokemonNetworkListener (PokemonNetworkListener pokemonNetworkListener) {
@@ -57,31 +51,9 @@ public class RetrofitFactory {
 		return retrofit;
 	}
 
-	public void getGameList () {
+	public void getPokedex (int id) {
 		PokedexApi pokedexService = buildRetrofit().create(PokedexApi.class);
-		Call <PokemonGames> getServiceResponse = pokedexService.getListOfGames();
-		getServiceResponse.enqueue(new Callback <PokemonGames>() {
-			@Override
-			public void onResponse (@NonNull Call <PokemonGames> call, @NonNull Response <PokemonGames> response) {
-				if (response.isSuccessful()) {
-					Log.d("onResponse: ", "Successful");
-
-					if (gameListNetworkListener != null) {
-						gameListNetworkListener.gamesListCallback(response.body());
-					}
-				}
-			}
-
-			@Override
-			public void onFailure (@NonNull Call <PokemonGames> call, @NonNull Throwable t) {
-				Log.e("onFailure: ", t.getMessage());
-			}
-		});
-	}
-
-	public void getPokedex () {
-		PokedexApi pokedexService = buildRetrofit().create(PokedexApi.class);
-		Call <Pokedex> getServiceResponse = pokedexService.getPokedex(2);
+		Call <Pokedex> getServiceResponse = pokedexService.getPokedex(id);
 		getServiceResponse.enqueue(new Callback <Pokedex>() {
 			@Override
 			public void onResponse (@NonNull Call <Pokedex> call, @NonNull Response <Pokedex> response) {
@@ -125,10 +97,6 @@ public class RetrofitFactory {
 
 	public interface PokedexNetworkListener {
 		void pokedexCallback (Pokedex pokedex);
-	}
-
-	public interface GameListNetworkListener {
-		void gamesListCallback (PokemonGames games);
 	}
 
 	public interface PokemonNetworkListener {
