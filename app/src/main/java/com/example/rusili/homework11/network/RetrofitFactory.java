@@ -3,6 +3,7 @@ package com.example.rusili.homework11.network;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.example.rusili.homework11.common.AbstractRetrofitFactory;
 import com.example.rusili.homework11.detailscreen.api.PokemonApi;
 import com.example.rusili.homework11.detailscreen.model.Pokemon;
 import com.example.rusili.homework11.pokedexActivity.api.PokedexApi;
@@ -12,17 +13,10 @@ import com.example.rusili.homework11.util.Host;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by rusi.li on 11/20/17.
- */
-
-public class RetrofitFactory {
+public class RetrofitFactory extends AbstractRetrofitFactory{
 	private static RetrofitFactory retrofitFactory;
 
-	private Retrofit retrofit;
 	private PokedexNetworkListener pokedexNetworkListener = null;
 	private PokemonNetworkListener pokemonNetworkListener = null;
 
@@ -39,16 +33,6 @@ public class RetrofitFactory {
 
 	public void setPokemonNetworkListener (PokemonNetworkListener pokemonNetworkListener) {
 		this.pokemonNetworkListener = pokemonNetworkListener;
-	}
-
-	private Retrofit buildRetrofit () {
-		if (retrofit == null) {
-			retrofit = new Retrofit.Builder()
-				  .baseUrl(Host.PokeAPI.getUrl())
-				  .addConverterFactory(GsonConverterFactory.create())
-				  .build();
-		}
-		return retrofit;
 	}
 
 	public void getPokedex (int id) {
@@ -93,6 +77,11 @@ public class RetrofitFactory {
 				Log.e("onFailure: ", t.getMessage());
 			}
 		});
+	}
+
+	@Override
+	public String getHostUrl () {
+		return Host.PokeAPI.getUrl();
 	}
 
 	public interface PokedexNetworkListener {

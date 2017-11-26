@@ -1,16 +1,10 @@
 package com.example.rusili.homework11.pokedexActivity.view.fragments;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.rusili.homework11.R;
+import com.example.rusili.homework11.common.AbstractFragment;
 import com.example.rusili.homework11.pokedexActivity.controller.GameAdapter;
 import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
 
@@ -21,18 +15,18 @@ import java.util.List;
  * Created by rusi.li on 11/22/17.
  */
 
-public class GameListFragment extends Fragment {
-	private View parentView;
-	private RecyclerView gameRecyclerView;
+public class GameListFragment extends AbstractFragment {
 
 	private List <GameGroup> gameGroupList = new ArrayList <>();
 
-	@Nullable
 	@Override
-	public View onCreateView (@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		parentView = inflater.inflate(R.layout.game_list_fragment_layout, container, false);
+	public int getLayoutId () {
+		return R.layout.game_list_fragment_layout;
+	}
+
+	@Override
+	public void onCreateView () {
 		initialize();
-		return parentView;
 	}
 
 	private void initialize () {
@@ -50,7 +44,7 @@ public class GameListFragment extends Fragment {
 	}
 
 	private void setViews () {
-		gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
+		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
 		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 		gameRecyclerView.setAdapter(new GameAdapter(gameGroupList));
 	}
