@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".detailscreen.view.PokemonDetailActivity"/>
         <activity android:name=".detailscreen.view.PokemonActivity"/>
     </application>
 

@@ -27,17 +27,14 @@ public abstract class AbstractFragment extends Fragment {
 		return parentView;
 	}
 	public abstract int getLayoutId ();
-	public abstract void onCreateView();
+	public abstract void onCreateView ();
 
-	private void setParentActivity (Context context) {
-		parentActivity =  ((FragmentAbstractActivity) context);
+	private void setParentActivity (@NonNull Context context) {
+		parentActivity = ((FragmentAbstractActivity) context);
 	}
 
-	public FragmentAbstractActivity getParentActivity(){
+	@NonNull
+	public FragmentAbstractActivity getParentActivity () {
 		return parentActivity;
-	}
-
-	public AbstractFragment getThisFragment(){
-		return this;
 	}
 }

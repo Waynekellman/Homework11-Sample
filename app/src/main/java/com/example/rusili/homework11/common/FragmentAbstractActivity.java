@@ -2,6 +2,7 @@ package com.example.rusili.homework11.common;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,27 +26,28 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 		setLoadingTransition();
 	}
 
+	private void setContainer () {
+		this.container = findViewById(R.id.container);
+	}
+
 	private void setLoadingTransition () {
-		if (Build.VERSION.SDK_INT >= 19){
+		if (Build.VERSION.SDK_INT >= 19) {
 			Fade fade = new Fade();
 			fade.setDuration(250);
+			loadingFragment.setEnterTransition(fade);
 			loadingFragment.setExitTransition(fade);
 		}
 	}
 
-	public void showFragment(AbstractFragment abstractFragment){
+	public void showFragment (@NonNull AbstractFragment abstractFragment) {
 		fragmentManager.beginTransaction()
 			  .replace(getContainerId(), abstractFragment)
 			  .addToBackStack(null)
 			  .commit();
 	}
 
-	public int getContainerId(){
+	public int getContainerId () {
 		return container.getId();
-	}
-
-	private void setContainer () {
-		this.container = findViewById(R.id.container);
 	}
 
 	public void showLoadingFragment () {
@@ -54,7 +56,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 			  .commit();
 	}
 
-	public void hideLoadingFragment(){
+	public void hideLoadingFragment () {
 		fragmentManager.beginTransaction()
 			  .remove(loadingFragment)
 			  .commit();
