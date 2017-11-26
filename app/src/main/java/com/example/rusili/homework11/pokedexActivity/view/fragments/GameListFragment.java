@@ -11,12 +11,7 @@ import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by rusi.li on 11/22/17.
- */
-
 public class GameListFragment extends AbstractFragment {
-
 	private List <GameGroup> gameGroupList = new ArrayList <>();
 
 	@Override
@@ -46,6 +41,7 @@ public class GameListFragment extends AbstractFragment {
 	private void setViews () {
 		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
 		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+		gameRecyclerView.setHasFixedSize(true);
 		gameRecyclerView.setAdapter(new GameAdapter(gameGroupList));
 	}
 }

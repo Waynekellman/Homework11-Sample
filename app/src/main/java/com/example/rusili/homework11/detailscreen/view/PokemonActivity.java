@@ -25,7 +25,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 		setContentView(R.layout.detail_activity_layout);
 		showLoadingFragment();
 
-		pokemonName = getIntent().getStringExtra("pokemonName");
+		pokemonName = getIntent().getStringExtra(getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME));
 		initialize();
 	}
 

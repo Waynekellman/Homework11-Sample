@@ -6,7 +6,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public abstract class AbstractRetrofitFactory {
-	public Retrofit retrofit;
+	private Retrofit retrofit;
 
 	public abstract String getHostUrl ();
 

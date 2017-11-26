@@ -1,6 +1,5 @@
 package com.example.rusili.homework11.pokedexActivity.view.viewholder;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
@@ -28,17 +27,16 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	public void bind (PokemonEntries pokemonEntries) {
 		number.setText(String.valueOf(pokemonEntries.getEntry_number()));
 		name.setText(pokemonEntries.getPokemon_species().getName());
-		name.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick (View view) {
-		toDetailActivity(view.getContext());
+		toDetailActivity();
 	}
 
-	private void toDetailActivity (Context context) {
-		Intent toDetailActivity = new Intent(context, PokemonActivity.class);
-		toDetailActivity.putExtra("pokemonName", name.getText());
-		context.startActivity(toDetailActivity);
+	private void toDetailActivity () {
+		Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
+		toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText());
+		getContext().startActivity(toDetailActivity);
 	}
 }

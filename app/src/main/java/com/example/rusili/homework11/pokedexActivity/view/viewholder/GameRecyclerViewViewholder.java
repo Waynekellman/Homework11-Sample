@@ -1,6 +1,6 @@
 package com.example.rusili.homework11.pokedexActivity.view.viewholder;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,22 +27,28 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 	public void bind (GameGroup gameGroup) {
 		this.gameGroup = gameGroup;
 
+		String gamesString = createGamesString(gameGroup);
+		gameTextView.setText(gamesString);
+	}
+
+	@NonNull
+	private String createGamesString (GameGroup gameGroup) {
 		StringBuilder gameStringBuilder = new StringBuilder(gameGroup.getGameList().get(0));
 		for (String game : gameGroup.getGameList()){
 			gameStringBuilder.append(", ")
 				  .append(game);
 		}
-		gameTextView.setText(gameStringBuilder);
+		return gameStringBuilder.toString();
 	}
 
 	@Override
 	public void onClick (View view) {
-		showPokedexFragment(view.getContext());
+		showPokedexFragment();
 	}
 
-	private void showPokedexFragment (Context context) {
+	private void showPokedexFragment () {
 		if (gameGroup != null) {
-			((PokedexGeneralActivity) context).showPokedexFragment(gameGroup.getPokedexID());
+			((PokedexGeneralActivity) getContext()).showPokedexFragment(gameGroup.getPokedexID());
 		}
 	}
 }

@@ -29,6 +29,9 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	private void setContainer () {
 		this.container = findViewById(R.id.container);
 	}
+	public int getContainerId () {
+		return container.getId();
+	}
 
 	private void setLoadingTransition () {
 		if (Build.VERSION.SDK_INT >= 19) {
@@ -44,10 +47,6 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 			  .replace(getContainerId(), abstractFragment)
 			  .addToBackStack(null)
 			  .commit();
-	}
-
-	public int getContainerId () {
-		return container.getId();
 	}
 
 	public void showLoadingFragment () {

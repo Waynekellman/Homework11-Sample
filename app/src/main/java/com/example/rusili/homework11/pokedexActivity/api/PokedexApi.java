@@ -6,12 +6,10 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
-/**
- * Created by rusi.li on 11/20/17.
- */
-
 public interface PokedexApi {
+	String pokedexEndpoint = "pokedex/{id}";
+	String idPath = "id";
 
-    @GET("pokedex/{id}")
-    Call<Pokedex> getPokedex(@Path("id") int id);
+	@GET (pokedexEndpoint)
+	Call <Pokedex> getPokedex (@Path (idPath) int id);
 }

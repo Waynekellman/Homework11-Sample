@@ -2,7 +2,6 @@ package com.example.rusili.homework11.pokedexActivity.view.fragments;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractFragment;
@@ -15,12 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by rusi.li on 11/22/17.
- */
-
 public class PokedexFragment extends AbstractFragment {
-
 	private RecyclerView pokedexRecyclerView;
 
 	private int pokedexId;
@@ -40,6 +34,7 @@ public class PokedexFragment extends AbstractFragment {
 	private void setViews () {
 		pokedexRecyclerView = parentView.findViewById(R.id.pokedex_recyclerview);
 		pokedexRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+		pokedexRecyclerView.setHasFixedSize(true);
 		pokedexRecyclerView.setAdapter(null);
 	}
 
@@ -47,8 +42,6 @@ public class PokedexFragment extends AbstractFragment {
 		RetrofitFactory.PokedexNetworkListener pokedexNetworkListener = new RetrofitFactory.PokedexNetworkListener() {
 			@Override
 			public void pokedexCallback (Pokedex pokedex) {
-				Log.d("Pokedex: ", pokedex.getRegion().getName());
-
 				List <PokemonEntries> pokemonList = new ArrayList <>();
 				Collections.addAll(pokemonList, pokedex.getPokemonEntries());
 

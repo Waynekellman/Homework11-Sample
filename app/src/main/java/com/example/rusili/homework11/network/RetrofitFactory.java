@@ -30,7 +30,6 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 	public void setPokedexListener (PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;
 	}
-
 	public void setPokemonNetworkListener (PokemonNetworkListener pokemonNetworkListener) {
 		this.pokemonNetworkListener = pokemonNetworkListener;
 	}
@@ -87,7 +86,6 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 	public interface PokedexNetworkListener {
 		void pokedexCallback (Pokedex pokedex);
 	}
-
 	public interface PokemonNetworkListener {
 		void pokemonCallback (Pokemon pokemon);
 	}

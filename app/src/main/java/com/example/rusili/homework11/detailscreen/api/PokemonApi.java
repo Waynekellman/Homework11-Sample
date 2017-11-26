@@ -12,10 +12,13 @@ import retrofit2.http.Path;
  */
 
 public interface PokemonApi {
+	String pokemonNameEndpoint = "pokemon/{name}";
+	String pokemonSpeciesEndpoint = "pokemon-species/{name}";
+	String namePath = "name";
 
-    @GET("pokemon/{name}")
-    Call<Pokemon> getPokemon(@Path("name") String pokemonName);
+	@GET (pokemonNameEndpoint)
+	Call <Pokemon> getPokemon (@Path (namePath) String pokemonName);
 
-    @GET("pokemon-species/{name}")
-    Call<PokemonSpecies> getPokemonSpecies(@Path("name") String pokemonName);
+	@GET (pokemonSpeciesEndpoint)
+	Call <PokemonSpecies> getPokemonSpecies (@Path (namePath) String pokemonName);
 }
