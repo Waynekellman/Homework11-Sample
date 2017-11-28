@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Homework11</string>
     <string name="baseUrl">http://pokeapi.co/api/v2/</string>
-    <string name="INTENT_STRING_EXTRA_POKEMON_NAME">pokemonName</string>
 </resources>
