@@ -49,7 +49,6 @@ public class PokedexFragment extends AbstractFragment {
 				getParentActivity().hideLoadingFragment();
 			}
 		};
-
 		RetrofitFactory.getInstance().setPokedexListener(pokedexNetworkListener);
 		RetrofitFactory.getInstance().getPokedex(pokedexId);
 	}

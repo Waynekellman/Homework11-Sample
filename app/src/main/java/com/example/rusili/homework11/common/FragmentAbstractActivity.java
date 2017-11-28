@@ -50,14 +50,22 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	}
 
 	public void showLoadingFragment () {
-		fragmentManager.beginTransaction()
-			  .add(container.getId(), loadingFragment)
-			  .commit();
+		if (!loadingFragment.isAdded()) {
+			fragmentManager.beginTransaction()
+				  .add(container.getId(), loadingFragment)
+				  .commit();
+		}
 	}
 
 	public void hideLoadingFragment () {
 		fragmentManager.beginTransaction()
 			  .remove(loadingFragment)
 			  .commit();
+	}
+
+	@Override
+	public void onBackPressed () {
+		super.onBackPressed();
+		hideLoadingFragment();
 	}
 }

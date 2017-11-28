@@ -20,7 +20,7 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 
 	@Override
 	public void setViews () {
-		gameTextView = itemView.findViewById(R.id.game_textview);
+		gameTextView = itemView.findViewById(R.id.game_group);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 
 	@NonNull
 	private String createGamesString (GameGroup gameGroup) {
-		StringBuilder gameStringBuilder = new StringBuilder(gameGroup.getGameList().get(0));
+		StringBuilder gameStringBuilder = new StringBuilder();
 		for (String game : gameGroup.getGameList()){
 			gameStringBuilder.append(", ")
 				  .append(game);
