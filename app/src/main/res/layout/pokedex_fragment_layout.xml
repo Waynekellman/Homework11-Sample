@@ -11,6 +11,5 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/card_layout_margin_16dp"
         android:fadeScrollbars="true"
-        android:layoutAnimation="@anim/recyclerview_layout_set"
         android:scrollbars="vertical" />
 </android.support.design.widget.CoordinatorLayout>

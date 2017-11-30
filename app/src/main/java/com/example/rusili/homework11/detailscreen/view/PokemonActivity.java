@@ -23,6 +23,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	public void onCreate (@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		showLoadingFragment();
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		pokemonName = getIntent().getStringExtra(getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME));
 		initialize();
@@ -36,6 +37,15 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	private void initialize () {
 		setViews();
 		getPokemonDetails();
+	}
+
+	private void setViews () {
+		setTitle(pokemonName);
+
+		name = findViewById(R.id.detail_name);
+		type1 = findViewById(R.id.detail_type1);
+		type2 = findViewById(R.id.detail_type2);
+		sprite = findViewById(R.id.detail_sprite);
 	}
 
 	private void getPokemonDetails () {
@@ -60,12 +70,5 @@ public class PokemonActivity extends FragmentAbstractActivity {
 		Glide.with(this)
 			  .load(pokemon.getSprites().getBack_default())
 			  .into(sprite);
-	}
-
-	private void setViews () {
-		name = findViewById(R.id.detail_name);
-		type1 = findViewById(R.id.detail_type1);
-		type2 = findViewById(R.id.detail_type2);
-		sprite = findViewById(R.id.detail_sprite);
 	}
 }

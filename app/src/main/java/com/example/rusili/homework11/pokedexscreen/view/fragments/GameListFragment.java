@@ -30,7 +30,7 @@ public class GameListFragment extends AbstractFragment {
 		}
 		setViews();
 	}
-
+	
 	private void createGamesList () {
 		gameGroupList.add(new GameGroup(2, "I", "Blue", "Red", "Yellow"));
 		gameGroupList.add(new GameGroup(3, "II", "Silver", "Gold", "Crystal"));
@@ -39,6 +39,8 @@ public class GameListFragment extends AbstractFragment {
 	}
 
 	private void setViews () {
+		getParentActivity().setTitle("Generation:");
+
 		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
 		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 		gameRecyclerView.setHasFixedSize(true);
