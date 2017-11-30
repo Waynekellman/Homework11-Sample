@@ -12,63 +12,65 @@ import com.example.rusili.homework11.detailscreen.model.Pokemon;
 import com.example.rusili.homework11.network.RetrofitFactory;
 
 public class PokemonActivity extends FragmentAbstractActivity {
-	private String pokemonName;
+    private String pokemonName;
 
-	private TextView name;
-	private TextView type1;
-	private TextView type2;
-	private ImageView sprite;
+    private TextView name;
+    private TextView type1;
+    private TextView type2;
+    private ImageView sprite;
 
-	@Override
-	public void onCreate (@Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		showLoadingFragment();
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        showLoadingFragment();
 
-		pokemonName = getIntent().getStringExtra(getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME));
-		initialize();
-	}
+        pokemonName = getIntent().getStringExtra(getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME));
+        initialize();
+    }
 
-	@Override
-	protected int getLayoutId() {
-		return R.layout.detail_activity_layout;
-	}
+    @Override
+    protected int getLayoutId() {
+        return R.layout.detail_activity_layout;
+    }
 
-	private void initialize () {
-		setViews();
-		getPokemonDetails();
-	}
+    private void initialize() {
+        setViews();
+        getPokemonDetails();
+    }
 
-	private void setViews () {
-		setTitle(pokemonName);
+    private void setViews() {
+        setTitle(pokemonName);
 
-		name = findViewById(R.id.detail_name);
-		type1 = findViewById(R.id.detail_type1);
-		type2 = findViewById(R.id.detail_type2);
-		sprite = findViewById(R.id.detail_sprite);
-	}
+        name = findViewById(R.id.detail_name);
+        type1 = findViewById(R.id.detail_type1);
+        type2 = findViewById(R.id.detail_type2);
+        sprite = findViewById(R.id.detail_sprite);
+    }
 
-	private void getPokemonDetails () {
-		RetrofitFactory.PokemonNetworkListener pokemonNetworkListener = new RetrofitFactory.PokemonNetworkListener() {
-			@Override
-			public void pokemonCallback (Pokemon pokemon) {
-				showPokemonData(pokemon);
-				hideLoadingFragment();
-			}
-		};
+    private void getPokemonDetails() {
+        RetrofitFactory.PokemonNetworkListener pokemonNetworkListener = new RetrofitFactory.PokemonNetworkListener() {
+            @Override
+            public void pokemonCallback(Pokemon pokemon) {
+                showPokemonData(pokemon);
+                hideLoadingFragment();
+            }
+        };
 
-		RetrofitFactory.getInstance().setPokemonNetworkListener(pokemonNetworkListener);
-		RetrofitFactory.getInstance().getPokemon(pokemonName);
-	}
+        RetrofitFactory.getInstance().setPokemonNetworkListener(pokemonNetworkListener);
+        RetrofitFactory.getInstance().getPokemon(pokemonName);
+    }
 
-	private void showPokemonData (Pokemon pokemon) {
-		name.setText(pokemonName);
-		type1.setText(pokemon.getTypes()[0].getType().getName());
-		if (pokemon.getTypes().length > 1) {
-			type2.setText(pokemon.getTypes()[1].getType().getName());
-		}
-		Glide.with(this)
-			  .load(pokemon.getSprites().getBack_default())
-			  .into(sprite);
-	}
+    private void showPokemonData(Pokemon pokemon) {
+        name.setText(pokemonName);
+        type1.setText(pokemon.getTypes()[0].getType().getName());
+        if (pokemon.getTypes().length > 1) {
+            type2.setText(pokemon.getTypes()[1].getType().getName());
+        }
+
+        if (!PokemonActivity.this.isFinishing()) {
+            Glide.with(this)
+                    .load(pokemon.getSprites().getBack_default())
+                    .into(sprite);
+        }
+    }
 }

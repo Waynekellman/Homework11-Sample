@@ -2,6 +2,7 @@ package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.rusili.homework11.R;
@@ -39,6 +40,12 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 				  .append(game);
 		}
 		return gameStringBuilder.toString();
+	}
+
+	@Override
+	public void setOnClickListeners() {
+		FrameLayout frameLayout = itemView.findViewById(R.id.onclick_frame_layout);
+		frameLayout.setOnClickListener(this);
 	}
 
 	@Override
