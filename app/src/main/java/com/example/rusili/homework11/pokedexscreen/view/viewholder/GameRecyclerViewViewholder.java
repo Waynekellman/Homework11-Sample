@@ -1,4 +1,4 @@
-package com.example.rusili.homework11.pokedexActivity.view.viewholder;
+package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -6,8 +6,8 @@ import android.widget.TextView;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
-import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
-import com.example.rusili.homework11.pokedexActivity.view.PokedexGeneralActivity;
+import com.example.rusili.homework11.pokedexscreen.model.GameGroup;
+import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
 
 public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<GameGroup> {
 	private TextView gameTextView;

@@ -1,4 +1,4 @@
-package com.example.rusili.homework11.pokedexActivity.view.viewholder;
+package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.content.Intent;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
 import com.example.rusili.homework11.detailscreen.view.PokemonActivity;
-import com.example.rusili.homework11.pokedexActivity.model.objects.PokemonEntries;
+import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
 
 public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholder<PokemonEntries> {
 	private TextView number;

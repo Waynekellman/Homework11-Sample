@@ -6,8 +6,8 @@ import android.util.Log;
 import com.example.rusili.homework11.common.AbstractRetrofitFactory;
 import com.example.rusili.homework11.detailscreen.api.PokemonApi;
 import com.example.rusili.homework11.detailscreen.model.Pokemon;
-import com.example.rusili.homework11.pokedexActivity.api.PokedexApi;
-import com.example.rusili.homework11.pokedexActivity.model.Pokedex;
+import com.example.rusili.homework11.pokedexscreen.api.PokedexApi;
+import com.example.rusili.homework11.pokedexscreen.model.Pokedex;
 import com.example.rusili.homework11.util.Host;
 
 import retrofit2.Call;

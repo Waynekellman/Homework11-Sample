@@ -1,6 +1,6 @@
-package com.example.rusili.homework11.pokedexActivity.api;
+package com.example.rusili.homework11.pokedexscreen.api;
 
-import com.example.rusili.homework11.pokedexActivity.model.Pokedex;
+import com.example.rusili.homework11.pokedexscreen.model.Pokedex;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

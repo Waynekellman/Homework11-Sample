@@ -1,12 +1,12 @@
-package com.example.rusili.homework11.pokedexActivity.view.fragments;
+package com.example.rusili.homework11.pokedexscreen.view.fragments;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractFragment;
-import com.example.rusili.homework11.pokedexActivity.controller.GameAdapter;
-import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
+import com.example.rusili.homework11.pokedexscreen.controller.GameAdapter;
+import com.example.rusili.homework11.pokedexscreen.model.GameGroup;
 
 import java.util.ArrayList;
 import java.util.List;

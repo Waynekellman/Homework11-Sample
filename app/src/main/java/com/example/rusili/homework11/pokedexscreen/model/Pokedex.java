@@ -1,8 +1,8 @@
-package com.example.rusili.homework11.pokedexActivity.model;
+package com.example.rusili.homework11.pokedexscreen.model;
 
-import com.example.rusili.homework11.pokedexActivity.model.objects.PokemonEntries;
-import com.example.rusili.homework11.pokedexActivity.model.objects.Region;
-import com.example.rusili.homework11.pokedexActivity.model.objects.VersionGroups;
+import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
+import com.example.rusili.homework11.pokedexscreen.model.objects.Region;
+import com.example.rusili.homework11.pokedexscreen.model.objects.VersionGroups;
 
 public class Pokedex {
     private int id;
@@ -25,4 +25,6 @@ public class Pokedex {
     public PokemonEntries[] getPokemonEntries() {
         return pokemon_entries;
     }
+
+
 }

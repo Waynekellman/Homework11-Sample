@@ -20,11 +20,13 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	@Override
 	public void onCreate (@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.abstract_activity_layout);
+		setContentView(getLayoutId());
 
 		setContainer();
 		setLoadingTransition();
 	}
+
+	protected abstract int getLayoutId();
 
 	private void setContainer () {
 		this.container = findViewById(R.id.container);

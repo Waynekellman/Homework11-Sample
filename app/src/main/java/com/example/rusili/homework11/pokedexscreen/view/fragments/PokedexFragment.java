@@ -1,14 +1,16 @@
-package com.example.rusili.homework11.pokedexActivity.view.fragments;
+package com.example.rusili.homework11.pokedexscreen.view.fragments;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractFragment;
 import com.example.rusili.homework11.network.RetrofitFactory;
-import com.example.rusili.homework11.pokedexActivity.controller.PokedexAdapter;
-import com.example.rusili.homework11.pokedexActivity.model.Pokedex;
-import com.example.rusili.homework11.pokedexActivity.model.objects.PokemonEntries;
+import com.example.rusili.homework11.pokedexscreen.controller.PokedexAdapter;
+import com.example.rusili.homework11.pokedexscreen.model.Pokedex;
+import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
 
 import java.util.ArrayList;
 import java.util.Collections;

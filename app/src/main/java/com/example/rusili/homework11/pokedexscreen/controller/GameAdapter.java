@@ -1,10 +1,10 @@
-package com.example.rusili.homework11.pokedexActivity.controller;
+package com.example.rusili.homework11.pokedexscreen.controller;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
 import com.example.rusili.homework11.common.AbstractRecyclerviewAdapter;
-import com.example.rusili.homework11.pokedexActivity.model.GameGroup;
-import com.example.rusili.homework11.pokedexActivity.view.viewholder.GameRecyclerViewViewholder;
+import com.example.rusili.homework11.pokedexscreen.model.GameGroup;
+import com.example.rusili.homework11.pokedexscreen.view.viewholder.GameRecyclerViewViewholder;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.rusili.homework11.pokedexActivity.model;
+package com.example.rusili.homework11.pokedexscreen.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
