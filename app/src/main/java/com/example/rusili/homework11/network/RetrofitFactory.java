@@ -26,6 +26,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 		}
 		return retrofitFactory;
 	}
+	private RetrofitFactory(){}
 
 	public void setPokedexListener (PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;
@@ -48,10 +49,10 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 					}
 				}
 			}
-
 			@Override
 			public void onFailure (@NonNull Call <Pokedex> call, @NonNull Throwable t) {
 				Log.e("onFailure: ", t.getMessage());
+				pokedexNetworkListener.onErrorCallback(t);
 			}
 		});
 	}
@@ -70,10 +71,10 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 					}
 				}
 			}
-
 			@Override
 			public void onFailure (@NonNull Call <Pokemon> call, @NonNull Throwable t) {
 				Log.e("onFailure: ", t.getMessage());
+				pokemonNetworkListener.onErrorCallback(t);
 			}
 		});
 	}
@@ -85,8 +86,10 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 
 	public interface PokedexNetworkListener {
 		void pokedexCallback (Pokedex pokedex);
+		void onErrorCallback(Throwable t);
 	}
 	public interface PokemonNetworkListener {
 		void pokemonCallback (Pokemon pokemon);
+		void onErrorCallback(Throwable t);
 	}
 }

@@ -2,6 +2,7 @@ package com.example.rusili.homework11.detailscreen.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,8 +55,12 @@ public class PokemonActivity extends FragmentAbstractActivity {
                 showPokemonData(pokemon);
                 hideLoadingFragment();
             }
-        };
 
+            @Override
+            public void onErrorCallback (Throwable t) {
+                Snackbar.make(findViewById(android.R.id.content), R.string.network_error, Snackbar.LENGTH_LONG).show();
+            }
+        };
         RetrofitFactory.getInstance().setPokemonNetworkListener(pokemonNetworkListener);
         RetrofitFactory.getInstance().getPokemon(pokemonName);
     }

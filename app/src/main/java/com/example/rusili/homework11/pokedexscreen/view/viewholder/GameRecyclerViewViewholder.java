@@ -2,7 +2,6 @@ package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.example.rusili.homework11.R;
@@ -10,42 +9,43 @@ import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
 import com.example.rusili.homework11.pokedexscreen.model.GameGroup;
 import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
 
-public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<GameGroup> {
+public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<GameGroup>{
 	private TextView gameTextView;
+	private TextView generationBigTextView;
+	private TextView generationCaptionTextView;
 
 	private GameGroup gameGroup;
 
 	public GameRecyclerViewViewholder (View itemView) {
 		super(itemView);
+		setOnClickListeners();
 	}
 
 	@Override
 	public void setViews () {
 		gameTextView = itemView.findViewById(R.id.game_group);
+		generationBigTextView = itemView.findViewById(R.id.game_generation_big);
+		generationCaptionTextView = itemView.findViewById(R.id.game_generation_caption);
 	}
 
 	@Override
 	public void bind (GameGroup gameGroup) {
 		this.gameGroup = gameGroup;
 
-		String gamesString = createGamesString(gameGroup);
-		gameTextView.setText(gamesString);
+		generationBigTextView.setText(gameGroup.getGeneration());
+		generationCaptionTextView.setText(new StringBuilder().append(getContext().getString(R.string.game_generation_text))
+			  .append(gameGroup.getGeneration()).toString());
+		gameTextView.setText(createGamesString(gameGroup));
 	}
 
 	@NonNull
 	private String createGamesString (GameGroup gameGroup) {
-		StringBuilder gameStringBuilder = new StringBuilder();
-		for (String game : gameGroup.getGameList()){
+		StringBuilder gameStringBuilder = new StringBuilder(gameGroup.getGameList().get(0));
+		for (String game : gameGroup.getGameList().subList(1, gameGroup.getGameList().size())){
 			gameStringBuilder.append(", ")
 				  .append(game);
 		}
 		return gameStringBuilder.toString();
-	}
-
-	@Override
-	public void setOnClickListeners() {
-		FrameLayout frameLayout = itemView.findViewById(R.id.onclick_frame_layout);
-		frameLayout.setOnClickListener(this);
 	}
 
 	@Override

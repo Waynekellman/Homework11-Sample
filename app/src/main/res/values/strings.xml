@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Homework11</string>
+    <string name="app_name">Pokedex</string>
     <string name="baseUrl">http://pokeapi.co/api/v2/</string>
 
     <string name="INTENT_STRING_EXTRA_POKEMON_NAME">pokemonName</string>
+    <string name="game_generation_text">Generation:</string>
+    <string name="no_network_connectivity">No Network Connectivity</string>
+    <string name="network_error">Network Error</string>
 </resources>

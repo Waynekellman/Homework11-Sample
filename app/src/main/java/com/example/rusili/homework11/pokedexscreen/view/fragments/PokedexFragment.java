@@ -1,12 +1,9 @@
 package com.example.rusili.homework11.pokedexscreen.view.fragments;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractFragment;
@@ -17,9 +14,7 @@ import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class PokedexFragment extends AbstractFragment {
     private RecyclerView pokedexRecyclerView;
@@ -56,6 +51,11 @@ public class PokedexFragment extends AbstractFragment {
                 Collections.addAll(pokemonList, pokedex.getPokemonEntries());
 
                 setPokedexAdapter(pokemonList);
+            }
+
+            @Override
+            public void onErrorCallback (Throwable t) {
+                Snackbar.make(parentView, R.string.network_error, Snackbar.LENGTH_LONG).show();
             }
         };
         RetrofitFactory.getInstance().setPokedexListener(pokedexNetworkListener);

@@ -1,11 +1,13 @@
 package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
+import com.example.rusili.homework11.common.NetworkConnectivity;
 import com.example.rusili.homework11.detailscreen.view.PokemonActivity;
 import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
 
@@ -35,8 +37,14 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	}
 
 	private void toDetailActivity () {
-		Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
-		toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText());
-		getContext().startActivity(toDetailActivity);
+		if (NetworkConnectivity.isConnected(getContext())){
+			Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
+			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText());
+			getContext().startActivity(toDetailActivity);
+		} else {
+			Snackbar.make(itemView,
+				  getResources().getString(R.string.no_network_connectivity), Snackbar.LENGTH_LONG)
+				  .show();
+		}
 	}
 }

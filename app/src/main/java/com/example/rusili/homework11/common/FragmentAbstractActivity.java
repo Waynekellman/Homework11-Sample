@@ -4,9 +4,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.view.View;
 
@@ -39,7 +39,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	private void setLoadingTransition () {
 		if (Build.VERSION.SDK_INT >= 19) {
 			Fade fade = new Fade();
-			fade.setDuration(250);
+			fade.setDuration(200);
 			loadingFragment.setEnterTransition(fade);
 			loadingFragment.setExitTransition(fade);
 		}
@@ -47,6 +47,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 
 	public void showFragment (@NonNull AbstractFragment abstractFragment) {
 		fragmentManager.beginTransaction()
+			  .setCustomAnimations(0, R.anim.fade_out)
 			  .replace(getContainerId(), abstractFragment)
 			  .addToBackStack(null)
 			  .commit();
@@ -64,6 +65,10 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 		fragmentManager.beginTransaction()
 			  .remove(loadingFragment)
 			  .commit();
+	}
+
+	public void showSnackbar(String message, int duration){
+		Snackbar.make(container, message, duration).show();
 	}
 
 	@Override
