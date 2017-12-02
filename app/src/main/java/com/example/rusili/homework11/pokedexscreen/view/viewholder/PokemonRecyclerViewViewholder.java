@@ -31,14 +31,26 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 
 	@Override
 	public void bind (PokemonEntries pokemonEntries) {
-		number.setText(String.valueOf(pokemonEntries.getEntry_number()));
-		String nameString = pokemonEntries.getPokemon_species().getName();
-		Character firstLetter = Character.toUpperCase(nameString.charAt(0));
-		name.setText(firstLetter + nameString.substring(1));
+		String id = getPokemonId(pokemonEntries);
+		number.setText(id);
+		name.setText(capitalizePokemonName(pokemonEntries));
 
 		Glide.with(itemView)
-			  .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonEntries.getEntry_number() + ".png")
+			  .load(getResources().getString(R.string.viewholder_pokemon_icon_url, id))
 			  .into(sprite);
+	}
+
+	private String capitalizePokemonName (PokemonEntries pokemonEntries) {
+		String nameString = pokemonEntries.getPokemon_species().getName();
+		Character firstLetter = Character.toUpperCase(nameString.charAt(0));
+		return firstLetter + nameString.substring(1);
+	}
+
+	private String getPokemonId (PokemonEntries pokemonEntries) {
+		String url = pokemonEntries.getPokemon_species().getUrl();
+		String toRemove = "https://pokeapi.co/api/v2/pokemon-species/";
+		return url.replace(toRemove, "")
+			  .replace("/", "");
 	}
 
 	@Override

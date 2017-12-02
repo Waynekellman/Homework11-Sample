@@ -9,7 +9,7 @@ public enum Host {
 
     private final String url;
 
-    private Host (final String url){
+    Host (final String url){
         this.url = url;
     }
 

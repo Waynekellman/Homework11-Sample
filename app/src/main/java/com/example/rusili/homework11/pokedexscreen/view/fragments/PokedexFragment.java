@@ -65,11 +65,12 @@ public class PokedexFragment extends AbstractFragment {
     }
 
     private void setPokedexAdapter(List<PokemonEntries> pokemonList) {
-        pokedexRecyclerView.setAdapter(new PokedexAdapter(pokemonList));
+        PokedexAdapter pokedexAdapter = new PokedexAdapter(pokemonList);
+        pokedexRecyclerView.setAdapter(pokedexAdapter);
         getParentActivity().hideLoadingFragment();
     }
 
-    public void setPokedexId(int pokedexID) {
-        this.pokedexId = pokedexID;
+    public void setPokedexId (int pokedexId) {
+        this.pokedexId = pokedexId;
     }
 }

@@ -10,9 +10,7 @@ import java.util.List;
 
 public class PokedexAdapter extends AbstractRecyclerviewAdapter<PokemonEntries> {
 
-	public PokedexAdapter (List <PokemonEntries> list) {
-		super(list);
-	}
+	public PokedexAdapter (List <PokemonEntries> list) {super(list);}
 
 	@Override
 	protected AbstractRecyclerViewViewholder getViewholder () {

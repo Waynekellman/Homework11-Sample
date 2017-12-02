@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <string name="baseUrl">http://pokeapi.co/api/v2/</string>
 
     <string name="INTENT_STRING_EXTRA_POKEMON_NAME">pokemonName</string>
     <string name="game_generation_text">Generation</string>
     <string name="no_network_connectivity">No Network Connectivity</string>
     <string name="network_error">Network Error</string>
+    <string name="viewholder_pokemon_icon_url">https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%1$s.png</string>
 </resources>

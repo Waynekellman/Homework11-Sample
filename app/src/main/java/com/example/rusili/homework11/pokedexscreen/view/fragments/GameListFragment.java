@@ -41,7 +41,7 @@ public class GameListFragment extends AbstractFragment {
 	}
 
 	private void setViews () {
-		getParentActivity().setTitle("Generation:");
+		getParentActivity().setTitle(R.string.game_generation_text);
 
 		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
 		gameRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
