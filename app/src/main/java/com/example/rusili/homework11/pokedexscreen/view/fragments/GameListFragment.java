@@ -1,5 +1,7 @@
 package com.example.rusili.homework11.pokedexscreen.view.fragments;
 
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -42,8 +44,10 @@ public class GameListFragment extends AbstractFragment {
 		getParentActivity().setTitle("Generation:");
 
 		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
-		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+		gameRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 		gameRecyclerView.setHasFixedSize(true);
+		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+		gameRecyclerView.setItemAnimator(new DefaultItemAnimator());
 		gameRecyclerView.setAdapter(new GameAdapter(gameGroupList));
 	}
 }

@@ -1,5 +1,9 @@
 package com.example.rusili.homework11.splashscreen;
 
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractSplashActivity;
 import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
@@ -9,6 +13,13 @@ import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
  */
 
 public class SplashActivity extends AbstractSplashActivity {
+
+    @Override
+    protected void setAnimation () {
+        ImageView icon = findViewById(R.id.splash_icon);
+        Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in_splash);
+        icon.setAnimation(fadeIn);
+    }
 
     @Override
     protected int getLayoutId() {

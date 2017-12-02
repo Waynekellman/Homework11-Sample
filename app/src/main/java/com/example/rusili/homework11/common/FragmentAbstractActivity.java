@@ -39,7 +39,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	private void setLoadingTransition () {
 		if (Build.VERSION.SDK_INT >= 19) {
 			Fade fade = new Fade();
-			fade.setDuration(200);
+			fade.setDuration(250);
 			loadingFragment.setEnterTransition(fade);
 			loadingFragment.setExitTransition(fade);
 		}

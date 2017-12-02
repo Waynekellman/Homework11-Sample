@@ -3,8 +3,10 @@ package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
 import com.example.rusili.homework11.common.NetworkConnectivity;
@@ -14,6 +16,7 @@ import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
 public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholder<PokemonEntries> {
 	private TextView number;
 	private TextView name;
+	private ImageView sprite;
 
 	public PokemonRecyclerViewViewholder (View itemView) {
 		super(itemView);
@@ -23,12 +26,19 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	public void setViews () {
 		number = itemView.findViewById(R.id.pokemon_id);
 		name = itemView.findViewById(R.id.pokemon_name);
+		sprite = itemView.findViewById(R.id.pokemon_viewholder_sprite);
 	}
 
 	@Override
 	public void bind (PokemonEntries pokemonEntries) {
 		number.setText(String.valueOf(pokemonEntries.getEntry_number()));
-		name.setText(pokemonEntries.getPokemon_species().getName());
+		String nameString = pokemonEntries.getPokemon_species().getName();
+		Character firstLetter = Character.toUpperCase(nameString.charAt(0));
+		name.setText(firstLetter + nameString.substring(1));
+
+		Glide.with(itemView)
+			  .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemonEntries.getEntry_number() + ".png")
+			  .into(sprite);
 	}
 
 	@Override
@@ -39,7 +49,7 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	private void toDetailActivity () {
 		if (NetworkConnectivity.isConnected(getContext())){
 			Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
-			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText());
+			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText().toString().toLowerCase());
 			getContext().startActivity(toDetailActivity);
 		} else {
 			Snackbar.make(itemView,

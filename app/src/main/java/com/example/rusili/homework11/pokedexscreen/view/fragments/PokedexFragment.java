@@ -2,6 +2,7 @@ package com.example.rusili.homework11.pokedexscreen.view.fragments;
 
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -37,8 +38,9 @@ public class PokedexFragment extends AbstractFragment {
         getParentActivity().setTitle("Generation: " + String.valueOf(pokedexId - 1));
 
         pokedexRecyclerView = parentView.findViewById(R.id.pokedex_recyclerview);
-        pokedexRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        pokedexRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         pokedexRecyclerView.setHasFixedSize(true);
+        pokedexRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         pokedexRecyclerView.setItemAnimator(new DefaultItemAnimator());
         pokedexRecyclerView.setAdapter(null);
     }

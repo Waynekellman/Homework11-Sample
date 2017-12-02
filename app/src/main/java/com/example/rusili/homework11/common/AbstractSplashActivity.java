@@ -1,6 +1,5 @@
 package com.example.rusili.homework11.common;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,11 +29,18 @@ public abstract class AbstractSplashActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume () {
+        super.onResume();
+        setAnimation();
+    }
+
     private void toNextActivity() {
         Intent toNextActivity = new Intent(AbstractSplashActivity.this, getNextActivity());
         startActivity(toNextActivity);
     }
 
+    protected abstract void setAnimation ();
     protected abstract int getLayoutId();
     protected abstract Class<?> getNextActivity();
 
