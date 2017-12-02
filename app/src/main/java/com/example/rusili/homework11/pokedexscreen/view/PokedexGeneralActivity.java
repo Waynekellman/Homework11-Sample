@@ -5,7 +5,7 @@ import android.support.design.widget.Snackbar;
 
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.FragmentAbstractActivity;
-import com.example.rusili.homework11.common.NetworkConnectivity;
+import com.example.rusili.homework11.util.NetworkConnectivity;
 import com.example.rusili.homework11.pokedexscreen.view.fragments.GameListFragment;
 import com.example.rusili.homework11.pokedexscreen.view.fragments.PokedexFragment;
 

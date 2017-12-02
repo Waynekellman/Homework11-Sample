@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="192dp">
+
+    <TextView
+        android:id="@+id/pokemon_detail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text= "Bulbasaur"/>
+
+    <TextView
+        android:id="@+id/pokemon_detail_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text= "150"/>
+
+    <TextView
+        android:id="@+id/pokemon_detail_type_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Grass"/>
+
+    <TextView
+        android:id="@+id/pokemon_detail_type_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Grass"/>
+
+    <ImageView
+        android:id="@+id/pokemon_detail_sprite"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        tools:src="@drawable/pokeball"/>
+
+</LinearLayout>

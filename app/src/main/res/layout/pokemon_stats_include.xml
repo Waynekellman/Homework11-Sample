@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/margin_horizontal_8dp"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/pokemon_stats_include_field_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/margin_horizontal_8dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_hp"/>
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_attack"/>
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_defense"/>
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_sp_atk"/>
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_sp_def"/>
+
+        <TextView
+            style="@style/PokemonStatsText"
+            android:text="@string/stats_speed"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pokemon_stats_include_progress_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_hp"
+            style="@style/PokemonStatsBar"
+            tools:progress="45"/>
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_atk"
+            style="@style/PokemonStatsBar"
+            tools:progress="49"/>
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_def"
+            style="@style/PokemonStatsBar"
+            tools:progress="49"/>
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_spatk"
+            style="@style/PokemonStatsBar"
+            tools:progress="65"/>
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_spdef"
+            style="@style/PokemonStatsBar"
+            tools:progress="65"/>
+
+        <ProgressBar
+            android:id="@+id/pokemon_stat_speed"
+            style="@style/PokemonStatsBar"
+            tools:progress="45"/>
+    </LinearLayout>
+
+</LinearLayout>

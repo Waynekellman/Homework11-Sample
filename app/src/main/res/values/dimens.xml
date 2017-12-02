@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="pokemon_stat_item_width">128dp</dimen>
+    <dimen name="pokemon_stat_item_height">18dp</dimen>
     <dimen name="card_layout_margin_16dp">16dp</dimen>
     <dimen name="game_viewholder_height">72dp</dimen>
     <dimen name="viewholder_arrow_right">32dp</dimen>

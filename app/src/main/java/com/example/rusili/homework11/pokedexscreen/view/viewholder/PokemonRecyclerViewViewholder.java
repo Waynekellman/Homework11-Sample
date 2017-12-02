@@ -9,14 +9,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
-import com.example.rusili.homework11.common.NetworkConnectivity;
+import com.example.rusili.homework11.util.NetworkConnectivity;
 import com.example.rusili.homework11.detailscreen.view.PokemonActivity;
 import com.example.rusili.homework11.pokedexscreen.model.objects.PokemonEntries;
+import com.example.rusili.homework11.util.TextHelper;
 
 public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholder<PokemonEntries> {
-	private TextView number;
-	private TextView name;
+	private TextView number, name;
 	private ImageView sprite;
+
+	private String capitalizedPokemonName;
 
 	public PokemonRecyclerViewViewholder (View itemView) {
 		super(itemView);
@@ -31,19 +33,15 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 
 	@Override
 	public void bind (PokemonEntries pokemonEntries) {
+		capitalizedPokemonName = TextHelper.capitalizeFirstLetter(pokemonEntries.getPokemon_species().getName());
 		String id = getPokemonId(pokemonEntries);
+
 		number.setText(id);
-		name.setText(capitalizePokemonName(pokemonEntries));
+		name.setText(capitalizedPokemonName);
 
 		Glide.with(itemView)
 			  .load(getResources().getString(R.string.viewholder_pokemon_icon_url, id))
 			  .into(sprite);
-	}
-
-	private String capitalizePokemonName (PokemonEntries pokemonEntries) {
-		String nameString = pokemonEntries.getPokemon_species().getName();
-		Character firstLetter = Character.toUpperCase(nameString.charAt(0));
-		return firstLetter + nameString.substring(1);
 	}
 
 	private String getPokemonId (PokemonEntries pokemonEntries) {
@@ -61,7 +59,7 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	private void toDetailActivity () {
 		if (NetworkConnectivity.isConnected(getContext())){
 			Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
-			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), name.getText().toString().toLowerCase());
+			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), capitalizedPokemonName);
 			getContext().startActivity(toDetailActivity);
 		} else {
 			Snackbar.make(itemView,

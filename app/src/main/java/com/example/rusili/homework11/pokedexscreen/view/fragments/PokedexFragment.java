@@ -35,7 +35,7 @@ public class PokedexFragment extends AbstractFragment {
     }
 
     private void setViews() {
-        getParentActivity().setTitle("Generation: " + String.valueOf(pokedexId - 1));
+        getParentActivity().setTitle(getResources().getString(R.string.game_generation_text) + " " + String.valueOf(pokedexId - 1));
 
         pokedexRecyclerView = parentView.findViewById(R.id.pokedex_recyclerview);
         pokedexRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));

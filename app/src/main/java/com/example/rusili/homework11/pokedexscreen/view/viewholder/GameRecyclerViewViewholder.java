@@ -11,8 +11,7 @@ import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
 
 public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<GameGroup>{
 	private TextView gameTextView;
-	private TextView generationBigTextView;
-	private TextView generationCaptionTextView;
+	private TextView generationBigTextView, generationCaptionTextView;
 
 	private GameGroup gameGroup;
 
