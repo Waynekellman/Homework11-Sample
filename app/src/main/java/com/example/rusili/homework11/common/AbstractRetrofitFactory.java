@@ -28,9 +28,13 @@ public abstract class AbstractRetrofitFactory {
 	@NonNull
 	private OkHttpClient createOkHttpClient(){
 		return new OkHttpClient.Builder()
-			  .writeTimeout(7, TimeUnit.SECONDS)
-			  .readTimeout(7, TimeUnit.SECONDS)
-			  .connectTimeout(7, TimeUnit.SECONDS)
+			  .writeTimeout(getTimeoutLength(), TimeUnit.SECONDS)
+			  .readTimeout(getTimeoutLength(), TimeUnit.SECONDS)
+			  .connectTimeout(getTimeoutLength(), TimeUnit.SECONDS)
 			  .build();
 	}
+	public int getTimeoutLength(){
+		return 10;
+	}
+
 }

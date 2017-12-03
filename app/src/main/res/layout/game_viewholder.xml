@@ -50,7 +50,7 @@
     </LinearLayout>
 
     <ImageView
-        android:layout_width="@dimen/game_viewholder_arrow_right"
+        android:layout_width="@dimen/viewholder_arrow_right_width"
         android:layout_height="match_parent"
         android:layout_gravity="right"
         android:layout_marginRight="@dimen/card_layout_margin_16dp"

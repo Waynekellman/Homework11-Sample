@@ -1,5 +1,7 @@
 package com.example.rusili.homework11.detailscreen.model;
 
+import android.support.annotation.Nullable;
+
 import com.example.rusili.homework11.R;
 
 public enum TypeEnum {
@@ -30,10 +32,9 @@ public enum TypeEnum {
 		this.color = color;
 	}
 
-	public static int getColorResource (String input){
+	public static int getColorResource (@Nullable String input){
 		for (TypeEnum typeEnum : TypeEnum.values()){
 			if (typeEnum.name.equals(input)){
-				int temp = typeEnum.color;
 				return typeEnum.color;
 			}
 		}

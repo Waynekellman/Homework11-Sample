@@ -36,7 +36,7 @@
 
         <ImageView
             android:id="@+id/pokemon_arrow"
-            android:layout_width="@dimen/viewholder_arrow_right"
+            android:layout_width="@dimen/viewholder_arrow_right_width"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/card_layout_margin_16dp"

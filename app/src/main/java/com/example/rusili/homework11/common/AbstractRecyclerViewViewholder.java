@@ -28,10 +28,12 @@ public abstract class AbstractRecyclerViewViewholder <T> extends RecyclerView.Vi
 	public abstract void setViews ();
 	public abstract void bind (T t);
 
+	@NonNull
 	protected Context getContext () {
 		return context;
 	}
 
+	@NonNull
 	protected Resources getResources () {
 		return resources;
 	}

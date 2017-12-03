@@ -1,6 +1,8 @@
 package com.example.rusili.homework11.pokedexscreen.view.viewholder;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,7 +34,7 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 	}
 
 	@Override
-	public void bind (PokemonEntries pokemonEntries) {
+	public void bind (@NonNull PokemonEntries pokemonEntries) {
 		capitalizedPokemonName = TextHelper.capitalizeFirstLetter(pokemonEntries.getPokemon_species().getName());
 		String id = getPokemonId(pokemonEntries);
 
@@ -44,9 +46,10 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 			  .into(sprite);
 	}
 
-	private String getPokemonId (PokemonEntries pokemonEntries) {
+	@Nullable
+	private String getPokemonId (@NonNull PokemonEntries pokemonEntries) {
 		String url = pokemonEntries.getPokemon_species().getUrl();
-		String toRemove = "https://pokeapi.co/api/v2/pokemon-species/";
+		String toRemove = getResources().getString(R.string.glide_pokemon_sprite_url_to_remove);
 		return url.replace(toRemove, "")
 			  .replace("/", "");
 	}

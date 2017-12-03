@@ -11,8 +11,8 @@
     <!-- General Activity -->
     <!-- Game Fragment -->
     <dimen name="viewholder_text_margin_left">72dp</dimen>
+    <dimen name="viewholder_arrow_right_width">32dp</dimen>
     <dimen name="game_viewholder_height">72dp</dimen>
-    <dimen name="game_viewholder_arrow_right">32dp</dimen>
     <dimen name="game_viewholder_headline_text_size">18sp</dimen>
     <dimen name="game_viewholder_large_text_size">42sp</dimen>
 

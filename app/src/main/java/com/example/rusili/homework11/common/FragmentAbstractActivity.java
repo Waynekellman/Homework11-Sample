@@ -67,8 +67,8 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 			  .commit();
 	}
 
-	public void showSnackbar(String message, int duration){
-		Snackbar.make(container, message, duration).show();
+	public void showSnackbar(@Nullable String message, int duration){
+		Snackbar.make(container, "" + message, duration).show();
 	}
 
 	@Override

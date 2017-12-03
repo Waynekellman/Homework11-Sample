@@ -1,6 +1,7 @@
 package com.example.rusili.homework11.network;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.rusili.homework11.common.AbstractRetrofitFactory;
@@ -20,6 +21,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 	private PokedexNetworkListener pokedexNetworkListener = null;
 	private PokemonNetworkListener pokemonNetworkListener = null;
 
+	@NonNull
 	public static RetrofitFactory getInstance () {
 		if (retrofitFactory == null) {
 			retrofitFactory = new RetrofitFactory();
@@ -28,10 +30,10 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 	}
 	private RetrofitFactory(){}
 
-	public void setPokedexListener (PokedexNetworkListener pokedexNetworkListener) {
+	public void setPokedexListener (@Nullable PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;
 	}
-	public void setPokemonNetworkListener (PokemonNetworkListener pokemonNetworkListener) {
+	public void setPokemonNetworkListener (@Nullable PokemonNetworkListener pokemonNetworkListener) {
 		this.pokemonNetworkListener = pokemonNetworkListener;
 	}
 
@@ -57,7 +59,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 		});
 	}
 
-	public void getPokemon (String name) {
+	public void getPokemon (@NonNull String name) {
 		PokemonApi pokedexService = buildRetrofit().create(PokemonApi.class);
 		Call <Pokemon> getServiceResponse = pokedexService.getPokemon(name);
 		getServiceResponse.enqueue(new Callback <Pokemon>() {

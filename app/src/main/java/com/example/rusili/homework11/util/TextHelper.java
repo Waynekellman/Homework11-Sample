@@ -1,8 +1,11 @@
 package com.example.rusili.homework11.util;
 
+import android.support.annotation.NonNull;
+
 public class TextHelper {
 
-	public static String capitalizeFirstLetter(String word){
+	@NonNull
+	public static String capitalizeFirstLetter(@NonNull String word){
 		return Character.toUpperCase(word.charAt(0)) + word.substring(1);
 	}
 }

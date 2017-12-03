@@ -1,6 +1,7 @@
 package com.example.rusili.homework11.common;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,7 @@ public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapt
 	public List <T> list;
 	public View view;
 
-	public AbstractRecyclerviewAdapter (List <T> list) {
+	public AbstractRecyclerviewAdapter (@Nullable List <T> list) {
 		this.list = list;
 	}
 
@@ -32,7 +33,7 @@ public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapt
 		}
 	}
 
-	public void setList (List <T> list) {
+	public void setList (@NonNull List <T> list) {
 		this.list = list;
 	}
 

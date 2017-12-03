@@ -1,5 +1,7 @@
 package com.example.rusili.homework11.pokedexscreen.controller;
 
+import android.support.annotation.NonNull;
+
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.AbstractRecyclerViewViewholder;
 import com.example.rusili.homework11.common.AbstractRecyclerviewAdapter;
@@ -10,7 +12,7 @@ import java.util.List;
 
 public class PokedexAdapter extends AbstractRecyclerviewAdapter<PokemonEntries> {
 
-	public PokedexAdapter (List <PokemonEntries> list) {super(list);}
+	public PokedexAdapter (@NonNull List <PokemonEntries> list) {super(list);}
 
 	@Override
 	protected AbstractRecyclerViewViewholder getViewholder () {
