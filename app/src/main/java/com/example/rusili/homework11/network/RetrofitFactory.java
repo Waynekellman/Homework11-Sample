@@ -42,7 +42,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 			@Override
 			public void onResponse (@NonNull Call <Pokedex> call, @NonNull Response <Pokedex> response) {
 				if (response.isSuccessful()) {
-					Log.d("onResponse: ", "Successful");
+					Log.d("getPokedex onResponse: ", "Successful");
 
 					if (pokedexNetworkListener != null) {
 						pokedexNetworkListener.pokedexCallback(response.body());
@@ -51,7 +51,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 			}
 			@Override
 			public void onFailure (@NonNull Call <Pokedex> call, @NonNull Throwable t) {
-				Log.e("onFailure: ", t.getMessage());
+				Log.e("getPokedex onFailure: ", t.getMessage());
 				pokedexNetworkListener.onErrorCallback(t);
 			}
 		});
@@ -64,7 +64,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 			@Override
 			public void onResponse (@NonNull Call <Pokemon> call, @NonNull Response <Pokemon> response) {
 				if (response.isSuccessful()) {
-					Log.d("onResponse: ", "Successful");
+					Log.d("getPokemon onResponse: ", "Successful");
 
 					if (pokemonNetworkListener != null) {
 						pokemonNetworkListener.pokemonCallback(response.body());
@@ -73,7 +73,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 			}
 			@Override
 			public void onFailure (@NonNull Call <Pokemon> call, @NonNull Throwable t) {
-				Log.e("onFailure: ", t.getMessage());
+				Log.e("getPokemon onFailure: ", t.getMessage());
 				pokemonNetworkListener.onErrorCallback(t);
 			}
 		});

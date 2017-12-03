@@ -12,10 +12,10 @@ import android.support.annotation.NonNull;
 public class NetworkConnectivity {
 
 	public static boolean isConnected (@NonNull Context context) {
-		ConnectivityManager cm =
+		ConnectivityManager connectivityManager =
 			  (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+		NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
 		return activeNetwork != null &&
 			  activeNetwork.isConnectedOrConnecting();
 	}

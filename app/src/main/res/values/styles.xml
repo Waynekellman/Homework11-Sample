@@ -9,17 +9,18 @@
     </style>
 
     <!-- Pokemon Stats -->
-    <style name="PokemonStatsBar" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:layout_width">@dimen/pokemon_stat_item_width</item>
-        <item name="android:layout_height">@dimen/pokemon_stat_item_height</item>
-        <item name="android:scaleY">2</item>
-    </style>
-
     <style name="PokemonStatsText">
         <item name="android:layout_width">@dimen/pokemon_stat_item_width</item>
         <item name="android:layout_height">@dimen/pokemon_stat_item_height</item>
         <item name="android:textAlignment">viewEnd</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/textDark</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="PokemonStatsBar" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">@dimen/pokemon_stat_item_width</item>
+        <item name="android:layout_height">@dimen/pokemon_stat_item_height</item>
+        <item name="android:scaleY">3</item>
     </style>
 
 </resources>

@@ -32,7 +32,7 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 		this.gameGroup = gameGroup;
 
 		generationBigTextView.setText(gameGroup.getGeneration());
-		generationCaptionTextView.setText(new StringBuilder().append(getContext().getString(R.string.game_generation_text))
+		generationCaptionTextView.setText(new StringBuilder().append(getResources().getString(R.string.game_generation_text))
 			  .append(" ")
 			  .append(gameGroup.getGeneration()).toString());
 		gameTextView.setText(createGamesString(gameGroup));

@@ -54,7 +54,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	}
 
 	public void showLoadingFragment () {
-		if (!loadingFragment.isAdded()) {
+		if (!loadingFragment.isAdded() && !isFinishing()) {
 			fragmentManager.beginTransaction()
 				  .add(container.getId(), loadingFragment)
 				  .commit();

@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="pokemon_stat_item_width">128dp</dimen>
-    <dimen name="pokemon_stat_item_height">18dp</dimen>
+    <!-- Common -->
+    <dimen name="margin_horizontal_8dp">8dp</dimen>
     <dimen name="card_layout_margin_16dp">16dp</dimen>
-    <dimen name="game_viewholder_height">72dp</dimen>
-    <dimen name="viewholder_arrow_right">32dp</dimen>
-    <dimen name="viewholder_headline_text_size">16sp</dimen>
-    <dimen name="viewholder_image_margin_left">72dp</dimen>
-    <dimen name="viewholder_generation_large_text_size">42sp</dimen>
     <dimen name="card_layout_left_icon_width">40dp</dimen>
+
+    <!-- Splash Screen -->
+    <dimen name="splash_icon_size">200dp</dimen>
+
+    <!-- General Activity -->
+    <!-- Game Fragment -->
+    <dimen name="viewholder_text_margin_left">72dp</dimen>
+    <dimen name="game_viewholder_height">72dp</dimen>
+    <dimen name="game_viewholder_arrow_right">32dp</dimen>
+    <dimen name="game_viewholder_headline_text_size">18sp</dimen>
+    <dimen name="game_viewholder_large_text_size">42sp</dimen>
+
+    <!-- Pokemon Fragment -->
     <dimen name="pokemon_viewholder_height">72dp</dimen>
     <dimen name="pokemon_viewholder_sprite_height">56dp</dimen>
     <dimen name="pokemon_left_text_size">18sp</dimen>
     <dimen name="pokemon_viewholder_name_text_size">18sp</dimen>
-    <dimen name="splash_icon_size">200dp</dimen>
-    <dimen name="margin_horizontal_8dp">8dp</dimen>
+
+    <!-- Detail Activity -->
+    <!-- Pokemon Header -->
+    <dimen name="pokemon_header_type_width">72dp</dimen>
+    <dimen name="pokemon_header_type_height">28dp</dimen>
+    <dimen name="pokemon_header_type_text_size">16sp</dimen>
+    <dimen name="pokemon_header_name_text_size">32sp</dimen>
+    <dimen name="pokemon_header_id_text_size">24sp</dimen>
+    <dimen name="pokemon_header_height">192dp</dimen>
+
+    <!-- Pokemon Stat -->
+    <dimen name="pokemon_stat_item_width">128dp</dimen>
+    <dimen name="pokemon_stat_item_height">32dp</dimen>
 </resources>

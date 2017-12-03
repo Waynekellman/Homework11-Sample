@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="192dp">
+              android:layout_height="@dimen/pokemon_header_height"
+              android:orientation="vertical">
 
     <TextView
         android:id="@+id/pokemon_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text= "Bulbasaur"/>
+        android:textColor="@color/textDark"
+        android:textSize="@dimen/pokemon_header_name_text_size"
+        tools:text="Bulbasaur"/>
 
     <TextView
         android:id="@+id/pokemon_detail_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text= "150"/>
+        android:textColor="@color/textMedium"
+        android:textSize="@dimen/pokemon_header_id_text_size"
+        tools:text="150"/>
 
-    <TextView
-        android:id="@+id/pokemon_detail_type_1"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Grass"/>
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/pokemon_detail_type_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Grass"/>
+        <TextView
+            android:id="@+id/pokemon_detail_type_1"
+            android:layout_width="@dimen/pokemon_header_type_width"
+            android:layout_height="@dimen/pokemon_header_type_height"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginRight="@dimen/margin_horizontal_8dp"
+            android:textSize="@dimen/pokemon_header_type_text_size"
+            android:textStyle="bold"
+            tools:background="@color/grass"
+            tools:text="Grass"/>
+
+        <TextView
+            android:id="@+id/pokemon_detail_type_2"
+            android:layout_width="@dimen/pokemon_header_type_width"
+            android:layout_height="@dimen/pokemon_header_type_height"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/pokemon_header_type_text_size"
+            android:textStyle="bold"
+            tools:background="@color/poison"
+            tools:text="Poison"/>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/pokemon_detail_sprite"

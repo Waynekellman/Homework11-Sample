@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.rusili.homework11.R;
 import com.example.rusili.homework11.common.FragmentAbstractActivity;
 import com.example.rusili.homework11.detailscreen.model.Pokemon;
+import com.example.rusili.homework11.detailscreen.model.TypeEnum;
 import com.example.rusili.homework11.network.RetrofitFactory;
 import com.example.rusili.homework11.util.TextHelper;
 
@@ -90,14 +91,19 @@ public class PokemonActivity extends FragmentAbstractActivity {
 
 		name.setText(pokemonName);
 		id.setText(String.valueOf(pokemon.getId()));
-		type1.setText(TextHelper.capitalizeFirstLetter(pokemon.getTypes()[0].getType().getName()));
+
+		String type = pokemon.getTypes()[0].getType().getName();
+		type1.setText(TextHelper.capitalizeFirstLetter(type));
+		type1.setBackgroundColor(getResources().getColor(TypeEnum.getColorResource(type)));
 		if (pokemon.getTypes().length > 1) {
-			type2.setText(TextHelper.capitalizeFirstLetter(pokemon.getTypes()[1].getType().getName()));
+			type = pokemon.getTypes()[1].getType().getName();
+			type2.setText(TextHelper.capitalizeFirstLetter(type));
+			type2.setBackgroundColor(getResources().getColor(TypeEnum.getColorResource(type)));
 		}
 
 		if (!PokemonActivity.this.isFinishing()) {
 			Glide.with(this)
-				  .load(pokemon.getSprites().getBack_default())
+				  .load(pokemon.getSprites().getFront_default())
 				  .into(sprite);
 		}
 	}

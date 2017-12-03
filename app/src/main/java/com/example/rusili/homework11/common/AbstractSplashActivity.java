@@ -43,7 +43,4 @@ public abstract class AbstractSplashActivity extends AppCompatActivity {
     protected abstract void setAnimation ();
     protected abstract int getLayoutId();
     protected abstract Class<?> getNextActivity();
-
-    public void setLayoutEnterTransition(){}
-    public void setLayoutExitTransition(){}
 }
