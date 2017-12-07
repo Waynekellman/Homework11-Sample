@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+
+//	Abstracted the Viewholder to include an OnClickListener so I don't have to implement that for each one.
+//	In addition, I save the context so I can create intents quicker and create my setVIew and bind methods for quicker Viewholder creation
 public abstract class AbstractRecyclerViewViewholder <T> extends RecyclerView.ViewHolder implements View.OnClickListener {
 	private Context context;
 	private Resources resources;

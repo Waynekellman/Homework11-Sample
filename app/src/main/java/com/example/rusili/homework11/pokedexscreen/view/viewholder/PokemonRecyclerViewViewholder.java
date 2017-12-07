@@ -35,17 +35,20 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 
 	@Override
 	public void bind (@NonNull PokemonEntries pokemonEntries) {
-		capitalizedPokemonName = TextHelper.capitalizeFirstLetter(pokemonEntries.getPokemon_species().getName());
+		capitalizedPokemonName = TextHelper.capitalizeFirstLetter(pokemonEntries.getPokemon_species().getName());		// Using my TextHelper class here.
 		String id = getPokemonId(pokemonEntries);
 
 		number.setText(id);
 		name.setText(capitalizedPokemonName);
 
+		// I found the url that PokeApi uses to store their images, and I found out each pokemon's url is referenced by its id number.
+		// Using that, I'm able to get the correct image for each pokemon using the pokemon Id I retrieve from PokeApi
 		Glide.with(itemView)
 			  .load(getResources().getString(R.string.viewholder_pokemon_icon_url, id))
 			  .into(sprite);
 	}
 
+	// The only reference to the Pokemon's Id number is in a Url the Api returns. That's why I have to remove a lot of the String before I get to just the Id number.
 	@Nullable
 	private String getPokemonId (@NonNull PokemonEntries pokemonEntries) {
 		String url = pokemonEntries.getPokemon_species().getUrl();
@@ -59,6 +62,7 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 		toDetailActivity();
 	}
 
+	// Once again, another connectivity check.
 	private void toDetailActivity () {
 		if (NetworkConnectivity.isConnected(getContext())){
 			Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);

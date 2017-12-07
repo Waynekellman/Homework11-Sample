@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+//  	An Abstract Fragment with the ability to get its Parent Activity and View
+// 	as well as reduce boilerplate code with layout inflation
 public abstract class AbstractFragment extends Fragment {
 	private FragmentAbstractActivity parentActivity;
 	public View parentView;

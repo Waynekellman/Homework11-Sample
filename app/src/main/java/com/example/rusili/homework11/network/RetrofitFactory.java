@@ -14,8 +14,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+//	This class is made to be a Singleton, meaning that only 1 of it ever exists.
+//	That's the reason for having a reference to itself statically, as well as having a unique type of getter that I called "getInstance".
 public class RetrofitFactory extends AbstractRetrofitFactory{
-	private static RetrofitFactory retrofitFactory;
+	private static RetrofitFactory retrofitFactory;	// A reference to itself so it can "give" itself to whoever calls "getInstance"
 
 	private PokedexNetworkListener pokedexNetworkListener = null;
 	private PokemonNetworkListener pokemonNetworkListener = null;
@@ -27,7 +29,7 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 		}
 		return retrofitFactory;
 	}
-	private RetrofitFactory(){}
+	private RetrofitFactory(){}	// I make the constructor private here to prevent any instantiation of it. I want this object to be gotten only through the "getInstance" method
 
 	public void setPokedexListener (@NonNull PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;

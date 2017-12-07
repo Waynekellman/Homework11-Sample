@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//	This just moves the RetrofitBuilder into the background and let's you also change the Timeout parameters if you so choose.
 public abstract class AbstractRetrofitFactory {
 	private Retrofit retrofit;
 

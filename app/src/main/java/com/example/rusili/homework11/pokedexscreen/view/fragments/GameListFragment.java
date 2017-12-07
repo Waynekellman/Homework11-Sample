@@ -31,7 +31,8 @@ public class GameListFragment extends AbstractFragment {
 		}
 		setViews();
 	}
-	
+
+	// I created my own GameGroups because the PokeApi is annoying.
 	private void createGamesList () {
 		gameGroupList.add(new GameGroup(2, "I", "Blue", "Red", "Yellow"));
 		gameGroupList.add(new GameGroup(3, "II", "Silver", "Gold", "Crystal"));
@@ -40,10 +41,10 @@ public class GameListFragment extends AbstractFragment {
 	}
 
 	private void setViews () {
-		getParentActivity().setTitle(R.string.game_generation_text);
+		getParentActivity().setTitle(R.string.game_generation_text);	// Setting the title again.
 
 		RecyclerView gameRecyclerView = parentView.findViewById(R.id.pokemon_games_recycler_view);
-		gameRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+		gameRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));	// Shows the gray dividers between each viewholder. All you need is this line.
 		gameRecyclerView.setHasFixedSize(true);
 		gameRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 		gameRecyclerView.setAdapter(new GameAdapter(gameGroupList));

@@ -12,6 +12,8 @@ import com.example.rusili.homework11.R;
  * Created by rusi.li on 11/29/17.
  */
 
+//  An Abstract Splash screen Activity to remove a lot of boilerplate code that we know all splash screens need:
+//  Ex: onClick, Intents, etc
 public abstract class AbstractSplashActivity extends AppCompatActivity {
     private View container;
 

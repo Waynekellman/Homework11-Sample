@@ -28,7 +28,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	@Override
 	public void onCreate (@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		showLoadingFragment();
+		showLoadingFragment();	// I show my loading fragment as soon as this activity is created so it will show on top and not below it.
 
 		pokemonName = getIntent().getStringExtra(getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME));
 		initialize();
@@ -76,7 +76,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 			public void pokemonCallback (Pokemon pokemon) {
 				showHeaderData(pokemon);
 				showStatsData(pokemon);
-				hideLoadingFragment();
+				hideLoadingFragment();	// I hide the loading fragment only after my network call is successful.
 			}
 			@Override
 			public void onErrorCallback (Throwable t) {
@@ -88,7 +88,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	}
 
 	private void showHeaderData (@NonNull Pokemon pokemon) {
-		header_include.setVisibility(View.VISIBLE);
+		header_include.setVisibility(View.VISIBLE);	// I set my views to be invisible at the start because the static Strings will be visible beneath the loading fragment, which I didn't want.
 
 		name.setText(pokemonName);
 		id.setText(String.valueOf(pokemon.getId()));
@@ -102,7 +102,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 			type2.setBackgroundColor(getResources().getColor(TypeEnum.getColorResource(type)));
 		}
 
-		if (!PokemonActivity.this.isFinishing()) {
+		if (!PokemonActivity.this.isFinishing()) {	// This is needed so the app doesn't crash when navigating away from the activity while Glide is still trying to load the image.
 			Glide.with(this)
 				  .load(pokemon.getSprites().getFront_default())
 				  .into(sprite);
@@ -110,7 +110,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	}
 
 	private void showStatsData (@NonNull Pokemon pokemon) {
-		stats_include.setVisibility(View.VISIBLE);
+		stats_include.setVisibility(View.VISIBLE);		// I set my views to be invisible at the start because the static Strings will be visible beneath the loading fragment, which I didn't want.
 
 		hp.setProgress(pokemon.getStats()[5].getBase_stat());
 		attack.setProgress(pokemon.getStats()[4].getBase_stat());

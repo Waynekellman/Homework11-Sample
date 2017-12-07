@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.rusili.homework11.R;
 
+//	Just a fragment that only shows the loading layout. Nothing else.
 public class LoadingFragment extends Fragment {
 
 	@Nullable

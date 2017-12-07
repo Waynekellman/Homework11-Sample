@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 
 import com.example.rusili.homework11.R;
 
+//	This will be new to you guys. I'm using an Enum here as I know there are only a certain amount of Types.
+//	This will equate a type with its String equivalent, but more importantly, its corresponding color.
 public enum TypeEnum {
 	Normal("normal", R.color.normal),
 	Fighting("fighting", R.color.fighting),

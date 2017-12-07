@@ -10,6 +10,7 @@ import com.example.rusili.homework11.pokedexscreen.view.viewholder.GameRecyclerV
 
 import java.util.List;
 
+// See how empty my adapter is when I move so much of the code to the Abstract one.
 public class GameAdapter extends AbstractRecyclerviewAdapter<GameGroup> {
 
 	public GameAdapter (@NonNull List <GameGroup> list) {

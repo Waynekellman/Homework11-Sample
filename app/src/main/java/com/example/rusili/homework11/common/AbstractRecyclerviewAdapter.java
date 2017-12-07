@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+// 	My Abstract Recycerlview Adapter which uses Generics to be able to take in any type of Object
+//	Gets rid of the getItemCount method as well as the onCreateViewholder inflation code.
 public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapter <AbstractRecyclerViewViewholder> {
 	public List <T> list;
 	public View view;

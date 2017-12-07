@@ -29,16 +29,16 @@ public class PokedexFragment extends AbstractFragment {
 
     @Override
     public void onCreateView() {
-        getParentActivity().showLoadingFragment();
+        getParentActivity().showLoadingFragment();  // I show the loading fragment as soon as this fragment's view is created so the loading fragment will be on TOP of it and not below it.
         setViews();
         getPokedexList();
     }
 
     private void setViews() {
-        getParentActivity().setTitle(getResources().getString(R.string.game_generation_text) + " " + String.valueOf(pokedexId - 1));
+        getParentActivity().setTitle(getResources().getString(R.string.game_generation_text) + " " + String.valueOf(pokedexId - 1));    // Set title changes the String in the action bar. Need reference to the parent activity because the action bar belongs to that.
 
         pokedexRecyclerView = parentView.findViewById(R.id.pokedex_recyclerview);
-        pokedexRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        pokedexRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL)); //  This is what creates the gray lines in between my viewholders
         pokedexRecyclerView.setHasFixedSize(true);
         pokedexRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         pokedexRecyclerView.setAdapter(null);
@@ -66,7 +66,7 @@ public class PokedexFragment extends AbstractFragment {
     private void setPokedexAdapter(@NonNull List<PokemonEntries> pokemonList) {
         PokedexAdapter pokedexAdapter = new PokedexAdapter(pokemonList);
         pokedexRecyclerView.setAdapter(pokedexAdapter);
-        getParentActivity().hideLoadingFragment();
+        getParentActivity().hideLoadingFragment();  //  Only after my network call is done and I've gotten all my information and set up my views do I remove my loading fragment.
     }
 
     public void setPokedexId (int pokedexId) {

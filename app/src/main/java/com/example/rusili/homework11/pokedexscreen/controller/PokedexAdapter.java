@@ -10,6 +10,7 @@ import com.example.rusili.homework11.pokedexscreen.view.viewholder.PokemonRecycl
 
 import java.util.List;
 
+// See how empty my adapter is when I move so much of the code to the Abstract one.
 public class PokedexAdapter extends AbstractRecyclerviewAdapter<PokemonEntries> {
 
 	public PokedexAdapter (@NonNull List <PokemonEntries> list) {super(list);}

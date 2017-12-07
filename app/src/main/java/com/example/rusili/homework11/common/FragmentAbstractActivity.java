@@ -12,6 +12,9 @@ import android.view.View;
 
 import com.example.rusili.homework11.R;
 
+//	This abstract Activity is only used when using Fragments.
+//	I hold an instance of a fragment manager as well as extract a lot of boilerplate code that's required for fragment transactions.
+//	Here you can also see the code I use for showing and hiding my loading screen.
 public abstract class FragmentAbstractActivity extends AppCompatActivity {
 	public final FragmentManager fragmentManager = getSupportFragmentManager();
 	private final LoadingFragment loadingFragment = new LoadingFragment();
