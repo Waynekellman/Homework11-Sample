@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="@dimen/pokemon_header_height"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pokemon_header_height"
+                android:orientation="vertical"
+                android:padding="@dimen/pokemon_header_padding">
+
+    <ImageView
+        android:id="@+id/pokemon_detail_sprite"
+        android:layout_width="@dimen/pokemon_header_sprite_width"
+        android:layout_height="@dimen/pokemon_header_sprite_width"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        tools:src="@drawable/pokeball"/>
 
     <TextView
         android:id="@+id/pokemon_detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/pokemon_detail_type_container"
+        android:layout_marginBottom="@dimen/pokemon_header_name_margin_bottom"
+        android:layout_toLeftOf="@id/pokemon_detail_sprite"
         android:textColor="@color/textDark"
         android:textSize="@dimen/pokemon_header_name_text_size"
         tools:text="Bulbasaur"/>
@@ -17,22 +29,28 @@
         android:id="@+id/pokemon_detail_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/pokemon_detail_name"
+        android:layout_marginRight="@dimen/pokemon_header_id_margin"
+        android:layout_toLeftOf="@id/pokemon_detail_name"
         android:textColor="@color/textMedium"
         android:textSize="@dimen/pokemon_header_id_text_size"
         tools:text="150"/>
 
     <LinearLayout
+        android:id="@+id/pokemon_detail_type_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/pokemon_detail_sprite"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/pokemon_detail_type_1"
             android:layout_width="@dimen/pokemon_header_type_width"
             android:layout_height="@dimen/pokemon_header_type_height"
+            android:layout_marginRight="@dimen/margin_horizontal_8dp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:layout_marginRight="@dimen/margin_horizontal_8dp"
             android:textSize="@dimen/pokemon_header_type_text_size"
             android:textStyle="bold"
             tools:background="@color/grass"
@@ -51,10 +69,5 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/pokemon_detail_sprite"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        tools:src="@drawable/pokeball"/>
 
-</LinearLayout>
+</RelativeLayout>

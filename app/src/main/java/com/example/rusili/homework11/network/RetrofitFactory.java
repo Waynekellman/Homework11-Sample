@@ -1,7 +1,6 @@
 package com.example.rusili.homework11.network;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.example.rusili.homework11.common.AbstractRetrofitFactory;
@@ -30,10 +29,10 @@ public class RetrofitFactory extends AbstractRetrofitFactory{
 	}
 	private RetrofitFactory(){}
 
-	public void setPokedexListener (@Nullable PokedexNetworkListener pokedexNetworkListener) {
+	public void setPokedexListener (@NonNull PokedexNetworkListener pokedexNetworkListener) {
 		this.pokedexNetworkListener = pokedexNetworkListener;
 	}
-	public void setPokemonNetworkListener (@Nullable PokemonNetworkListener pokemonNetworkListener) {
+	public void setPokemonNetworkListener (@NonNull PokemonNetworkListener pokemonNetworkListener) {
 		this.pokemonNetworkListener = pokemonNetworkListener;
 	}
 
