@@ -7,8 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface PokedexApi {
-	// Here I pull the Strings out into variables. No need to put in Resources.
-	String pokedexEndpoint = "pokedex/{id}";
+	String pokedexEndpoint = "pokedex/{id}";		// Here I pull the Strings out into variables. No need to put in Resources.
 	String idPath = "id";
 
 	@GET (pokedexEndpoint)

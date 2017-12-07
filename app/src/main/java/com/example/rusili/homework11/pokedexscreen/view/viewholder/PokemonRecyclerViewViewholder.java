@@ -41,17 +41,14 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 		number.setText(id);
 		name.setText(capitalizedPokemonName);
 
-		// I found the url that PokeApi uses to store their images, and I found out each pokemon's url is referenced by its id number.
-		// Using that, I'm able to get the correct image for each pokemon using the pokemon Id I retrieve from PokeApi
 		Glide.with(itemView)
-			  .load(getResources().getString(R.string.viewholder_pokemon_icon_url, id))
+			  .load(getResources().getString(R.string.viewholder_pokemon_icon_url, id))		// I found the url that PokeApi uses to store their images, and I found out each pokemon's url is referenced by its id number. Using that, I'm able to get the correct image for each pokemon using the pokemon Id I retrieve from PokeApi
 			  .into(sprite);
 	}
 
-	// The only reference to the Pokemon's Id number is in a Url the Api returns. That's why I have to remove a lot of the String before I get to just the Id number.
 	@Nullable
 	private String getPokemonId (@NonNull PokemonEntries pokemonEntries) {
-		String url = pokemonEntries.getPokemon_species().getUrl();
+		String url = pokemonEntries.getPokemon_species().getUrl();		// The only reference to the Pokemon's Id number is in a Url the Api returns. That's why I have to remove a lot of the String before I get to just the Id number.
 		String toRemove = getResources().getString(R.string.glide_pokemon_sprite_url_to_remove);
 		return url.replace(toRemove, "")
 			  .replace("/", "");
@@ -62,9 +59,8 @@ public class PokemonRecyclerViewViewholder extends AbstractRecyclerViewViewholde
 		toDetailActivity();
 	}
 
-	// Once again, another connectivity check.
 	private void toDetailActivity () {
-		if (NetworkConnectivity.isConnected(getContext())){
+		if (NetworkConnectivity.isConnected(getContext())){		// Once again, another connectivity check.
 			Intent toDetailActivity = new Intent(getContext(), PokemonActivity.class);
 			toDetailActivity.putExtra(getResources().getString(R.string.INTENT_STRING_EXTRA_POKEMON_NAME), capitalizedPokemonName);
 			getContext().startActivity(toDetailActivity);

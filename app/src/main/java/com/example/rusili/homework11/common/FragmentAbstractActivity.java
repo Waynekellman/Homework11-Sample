@@ -39,8 +39,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 		return container.getId();
 	}
 
-	//	Fragment transitions do not work below SDK 19. Also, I won't be calling it from my extended classes, so it's private.
-	private void setLoadingTransition () {
+	private void setLoadingTransition () {		//	Fragment transitions do not work below SDK 19. Also, I won't be calling it from my extended classes, so it's private.
 		if (Build.VERSION.SDK_INT >= 19) {
 			Fade fade = new Fade();	//	Android's own fade transition.
 			fade.setDuration(250);	// I set it to 250 milliseconds, or 1/4 of a second.
@@ -49,8 +48,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 		}
 	}
 
-	//	Put all the fragment transaction code here so I don't have to write it everytime in my activity.
-	public void showFragment (@NonNull AbstractFragment abstractFragment) {
+	public void showFragment (@NonNull AbstractFragment abstractFragment) {		//	Put all the fragment transaction code here so I don't have to write it everytime in my activity.
 		fragmentManager.beginTransaction()
 			  .setCustomAnimations(0, R.anim.fade_out)	//	This gives the fragment enter and exit animations. It uses Android's anim animations.
 			  .replace(getContainerId(), abstractFragment)	// Use replace instead of add unless you absolutely 100% know there's no fragment in the container.
@@ -72,8 +70,7 @@ public abstract class FragmentAbstractActivity extends AppCompatActivity {
 			  .commit();
 	}
 
-	//	Abstracted out the snackbar code. I just want to pass it my String, that's it.
-	public void showSnackbar(@Nullable String message){
+	public void showSnackbar(@Nullable String message){		//	Abstracted out the snackbar code. I just want to pass it my String, that's it.
 		Snackbar.make(container, "" + message, Snackbar.LENGTH_SHORT).show();
 	}
 

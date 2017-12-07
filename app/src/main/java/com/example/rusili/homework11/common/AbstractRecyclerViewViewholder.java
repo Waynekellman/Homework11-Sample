@@ -25,9 +25,8 @@ public abstract class AbstractRecyclerViewViewholder <T> extends RecyclerView.Vi
 		resources = context.getResources();
 	}
 
-	//	I make the whole itemview clickable by default, but I keep it public so it can be overridden at any time.
 	public void setOnClickListeners () {
-		itemView.setOnClickListener(this);
+		itemView.setOnClickListener(this);		//	I make the whole itemview clickable by default, but I keep it public so it can be overridden at any time.
 	}
 	public abstract void setViews ();		//	I like to set up my views in its own method
 	public abstract void bind (T t);	//	I know I'm always going to need a bind method

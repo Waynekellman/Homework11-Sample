@@ -38,9 +38,8 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 		gameTextView.setText(createGamesString(gameGroup));
 	}
 
-	//	This just creates a String of games for that generation.
 	@NonNull
-	private String createGamesString (@NonNull GameGroup gameGroup) {
+	private String createGamesString (@NonNull GameGroup gameGroup) {		//	This just creates a String of games for that generation.
 		StringBuilder gameStringBuilder = new StringBuilder(gameGroup.getGameList().get(0));
 		for (String game : gameGroup.getGameList().subList(1, gameGroup.getGameList().size())){
 			gameStringBuilder.append(", ")

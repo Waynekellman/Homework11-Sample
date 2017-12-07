@@ -15,24 +15,20 @@ import com.example.rusili.homework11.pokedexscreen.view.PokedexGeneralActivity;
 //  Extends the Abstract Splash Activity so I don't have to see/write a lot of code.
 public class SplashActivity extends AbstractSplashActivity {
 
-    //  Sets the animation for the imageview I want. View animations don't require a lot of code.
     @Override
     protected void setAnimation () {
         ImageView icon = findViewById(R.id.splash_icon);
         Animation fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in_splash);
-        icon.setAnimation(fadeIn);
+        icon.setAnimation(fadeIn);      //  Sets the animation for the imageview I want. View animations don't require a lot of code.
     }
 
-    //  Tells the abstract class which layout I want inflated for this Activity.
     @Override
     protected int getLayoutId() {
-        return R.layout.splash_screen_layout;
+        return R.layout.splash_screen_layout;       //  Tells the abstract class which layout I want inflated for this Activity.
     }
 
-    //  This method returns to the Abstract class which Activity I want to navigate to.
-    //  As you can see, there's no need to create an Intent here because I already did it in the Abstract class.
     @Override
     protected Class<?> getNextActivity() {
-        return PokedexGeneralActivity.class;
+        return PokedexGeneralActivity.class;        //  This method returns to the Abstract class which Activity I want to navigate to. As you can see, there's no need to create an Intent here because I already did it in the Abstract class.
     }
 }

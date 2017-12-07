@@ -26,9 +26,8 @@ public abstract class AbstractRetrofitFactory {
 		return retrofit;
 	}
 
-	//	Used to set our own TImeout lengths. Otherwise, this is not needed for creating a retrofit object.
 	@NonNull
-	private OkHttpClient createOkHttpClient(){
+	private OkHttpClient createOkHttpClient(){		//	Used to set our own TImeout lengths. Otherwise, this is not needed for creating a retrofit object.
 		return new OkHttpClient.Builder()
 			  .writeTimeout(getTimeoutLength(), TimeUnit.SECONDS)
 			  .readTimeout(getTimeoutLength(), TimeUnit.SECONDS)

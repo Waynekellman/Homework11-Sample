@@ -35,14 +35,12 @@ public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapt
 		}
 	}
 
-	// 	I give the adapter the ability to update its list after it's set in the constructor, but I have no need for it in this project.
 	public void setList (@NonNull List <T> list) {
-		this.list = list;
+		this.list = list;		// 	I give the adapter the ability to update its list after it's set in the constructor, but I have no need for it in this project.
 	}
 
-	//	This gets rid of the getItemCount method from the adapters which extend this class. It's annoying to look at.
 	@Override
-	public int getItemCount () {
+	public int getItemCount () {		//	This gets rid of the getItemCount method from the adapters which extend this class. It's annoying to look at.
 		if (!list.isEmpty()) {
 			return list.size();
 		} else {

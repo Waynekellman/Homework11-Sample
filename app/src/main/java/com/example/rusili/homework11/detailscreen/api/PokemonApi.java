@@ -11,8 +11,7 @@ import retrofit2.http.Path;
  */
 
 public interface PokemonApi {
-	// Here I pull the Strings out into variables. No need to put in Resources.
-	String pokemonNameEndpoint = "pokemon/{name}";
+	String pokemonNameEndpoint = "pokemon/{name}";		// Here I pull the Strings out into variables. No need to put in Resources.
 	String namePath = "name";
 
 	@GET (pokemonNameEndpoint)
