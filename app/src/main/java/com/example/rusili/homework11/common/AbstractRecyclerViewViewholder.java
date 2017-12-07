@@ -10,8 +10,8 @@ import android.view.View;
 //	Abstracted the Viewholder to include an OnClickListener so I don't have to implement that for each one.
 //	In addition, I save the context so I can create intents quicker and create my setVIew and bind methods for quicker Viewholder creation
 public abstract class AbstractRecyclerViewViewholder <T> extends RecyclerView.ViewHolder implements View.OnClickListener {
-	private Context context;
-	private Resources resources;
+	private Context context;	// Saves reference to its context
+	private Resources resources;		// Saves reference to resources so I can call getString quickly.
 
 	public AbstractRecyclerViewViewholder (@NonNull View itemView) {
 		super(itemView);
@@ -25,11 +25,12 @@ public abstract class AbstractRecyclerViewViewholder <T> extends RecyclerView.Vi
 		resources = context.getResources();
 	}
 
+	//	I make the whole itemview clickable by default, but I keep it public so it can be overridden at any time.
 	public void setOnClickListeners () {
 		itemView.setOnClickListener(this);
 	}
-	public abstract void setViews ();
-	public abstract void bind (T t);
+	public abstract void setViews ();		//	I like to set up my views in its own method
+	public abstract void bind (T t);	//	I know I'm always going to need a bind method
 
 	@NonNull
 	protected Context getContext () {

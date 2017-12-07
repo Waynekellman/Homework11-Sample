@@ -26,6 +26,7 @@ public abstract class AbstractRetrofitFactory {
 		return retrofit;
 	}
 
+	//	Used to set our own TImeout lengths. Otherwise, this is not needed for creating a retrofit object.
 	@NonNull
 	private OkHttpClient createOkHttpClient(){
 		return new OkHttpClient.Builder()
@@ -35,7 +36,6 @@ public abstract class AbstractRetrofitFactory {
 			  .build();
 	}
 	public int getTimeoutLength(){
-		return 10;
+		return 10;		//	Defaults the Timeout length to 10 seconds, but I set it to public so it can be overridden.
 	}
-
 }

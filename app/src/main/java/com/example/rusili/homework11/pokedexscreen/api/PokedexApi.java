@@ -12,5 +12,5 @@ public interface PokedexApi {
 	String idPath = "id";
 
 	@GET (pokedexEndpoint)
-	Call <Pokedex> getPokedex (@Path (idPath) int id);
+	Call <Pokedex> getPokedex (@Path (idPath) int id);		// The @Path is used when your endpoint is dynamic and you want to pass in a variable at runtime.
 }

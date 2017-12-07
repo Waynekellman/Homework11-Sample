@@ -38,6 +38,7 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 		gameTextView.setText(createGamesString(gameGroup));
 	}
 
+	//	This just creates a String of games for that generation.
 	@NonNull
 	private String createGamesString (@NonNull GameGroup gameGroup) {
 		StringBuilder gameStringBuilder = new StringBuilder(gameGroup.getGameList().get(0));
@@ -55,7 +56,7 @@ public class GameRecyclerViewViewholder extends AbstractRecyclerViewViewholder<G
 
 	private void showPokedexFragment () {
 		if (gameGroup != null) {
-			((PokedexGeneralActivity) getContext()).showPokedexFragment(gameGroup.getPokedexID());
+			((PokedexGeneralActivity) getContext()).showPokedexFragment(gameGroup.getPokedexID());		// I cast the context to my PokedexGeneralActivity so I can use its showPokedexFragment method.
 		}
 	}
 }

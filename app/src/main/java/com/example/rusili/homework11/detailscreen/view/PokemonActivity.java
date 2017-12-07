@@ -45,7 +45,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 	}
 
 	private void setViews () {
-		setTitle(pokemonName);
+		setTitle(pokemonName);	// Sets the String in the action bar.
 
 		setHeaderViews();
 		setStatsViews();
@@ -81,6 +81,7 @@ public class PokemonActivity extends FragmentAbstractActivity {
 			@Override
 			public void onErrorCallback (Throwable t) {
 				Snackbar.make(findViewById(android.R.id.content), R.string.network_error, Snackbar.LENGTH_LONG).show();
+				hideLoadingFragment();	//	Or if it fails
 			}
 		};
 		RetrofitFactory.getInstance().setPokemonNetworkListener(pokemonNetworkListener);

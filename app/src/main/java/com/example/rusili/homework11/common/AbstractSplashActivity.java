@@ -15,14 +15,19 @@ import com.example.rusili.homework11.R;
 //  An Abstract Splash screen Activity to remove a lot of boilerplate code that we know all splash screens need:
 //  Ex: onClick, Intents, etc
 public abstract class AbstractSplashActivity extends AppCompatActivity {
-    private View container;
+    private View container;     // No need to get reference to this container, so I don't need a getter.
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        container = findViewById(R.id.container);
+        setContainer();
+    }
+
+    //  I make the whole layout clickable. It also MUST contain an id called "container", or else it crashes.
+    private void setContainer () {
+        container = findViewById(R.id.container);   // This assumes my layout has a layout with the id of container. A bit scary.
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +42,7 @@ public abstract class AbstractSplashActivity extends AppCompatActivity {
         setAnimation();
     }
 
+    //  Removes the intent boilerplate and leaves the only variable to the getNextActivity method. I don't want my extended classes to call this, so I make it private
     private void toNextActivity() {
         Intent toNextActivity = new Intent(AbstractSplashActivity.this, getNextActivity());
         startActivity(toNextActivity);

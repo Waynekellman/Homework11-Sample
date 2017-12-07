@@ -12,8 +12,8 @@ import java.util.List;
 // 	My Abstract Recycerlview Adapter which uses Generics to be able to take in any type of Object
 //	Gets rid of the getItemCount method as well as the onCreateViewholder inflation code.
 public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapter <AbstractRecyclerViewViewholder> {
-	public List <T> list;
-	public View view;
+	public List <T> list;	// My generic list. It will hold any type of object.
+	public View view;	// Holds reference to the viewholder view.
 
 	public AbstractRecyclerviewAdapter (@Nullable List <T> list) {
 		this.list = list;
@@ -35,10 +35,12 @@ public abstract class AbstractRecyclerviewAdapter <T> extends RecyclerView.Adapt
 		}
 	}
 
+	// 	I give the adapter the ability to update its list after it's set in the constructor, but I have no need for it in this project.
 	public void setList (@NonNull List <T> list) {
 		this.list = list;
 	}
 
+	//	This gets rid of the getItemCount method from the adapters which extend this class. It's annoying to look at.
 	@Override
 	public int getItemCount () {
 		if (!list.isEmpty()) {

@@ -41,7 +41,6 @@ public class PokedexFragment extends AbstractFragment {
         pokedexRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL)); //  This is what creates the gray lines in between my viewholders
         pokedexRecyclerView.setHasFixedSize(true);
         pokedexRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        pokedexRecyclerView.setAdapter(null);
     }
 
     private void getPokedexList() {
@@ -52,11 +51,13 @@ public class PokedexFragment extends AbstractFragment {
                 Collections.addAll(pokemonList, pokedex.getPokemonEntries());
 
                 setPokedexAdapter(pokemonList);
+                getParentActivity().hideLoadingFragment();  //  Only after my network call is done and I've gotten all my information do I remove my loading fragment. You can see why getting reference to the parent activity is useful here.
             }
 
             @Override
             public void onErrorCallback (Throwable t) {
                 Snackbar.make(parentView, R.string.network_error, Snackbar.LENGTH_LONG).show();
+                getParentActivity().hideLoadingFragment();	//	Or if it fails
             }
         };
         RetrofitFactory.getInstance().setPokedexListener(pokedexNetworkListener);
@@ -64,9 +65,7 @@ public class PokedexFragment extends AbstractFragment {
     }
 
     private void setPokedexAdapter(@NonNull List<PokemonEntries> pokemonList) {
-        PokedexAdapter pokedexAdapter = new PokedexAdapter(pokemonList);
-        pokedexRecyclerView.setAdapter(pokedexAdapter);
-        getParentActivity().hideLoadingFragment();  //  Only after my network call is done and I've gotten all my information and set up my views do I remove my loading fragment.
+        pokedexRecyclerView.setAdapter(new PokedexAdapter(pokemonList));
     }
 
     public void setPokedexId (int pokedexId) {

@@ -16,5 +16,5 @@ public interface PokemonApi {
 	String namePath = "name";
 
 	@GET (pokemonNameEndpoint)
-	Call <Pokemon> getPokemon (@Path (namePath) String pokemonName);
+	Call <Pokemon> getPokemon (@Path (namePath) String pokemonName);	// The @Path is used when your endpoint is dynamic and you want to pass in a variable at runtime.
 }
